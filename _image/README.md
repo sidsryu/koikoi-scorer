@@ -9,8 +9,8 @@ Images for documentation
 
 ## Licensing
 
-`_image` µğ·ºÅä¸®¿¡ Æ÷ÇÔµÈ ¸ğµç È­Åõ ÀÌ¹ÌÁö´Â [GPL ¶óÀÌ¼¾½º][gpl]¸¦ µû¸¨´Ï´Ù.
-ÀÌ¹ÌÁö ÃâÃ³´Â [Wikimedia Commons][hanafuda]ÀÔ´Ï´Ù.
+`_image` ë””ë ‰í† ë¦¬ì— í¬í•¨ëœ ëª¨ë“  í™”íˆ¬ ì´ë¯¸ì§€ëŠ” [GPL ë¼ì´ì„¼ìŠ¤][gpl]ë¥¼ ë”°ë¦…ë‹ˆë‹¤.
+ì´ë¯¸ì§€ ì¶œì²˜ëŠ” [Wikimedia Commons][hanafuda]ì…ë‹ˆë‹¤.
 
 [gpl]: https://www.gnu.org/licenses/gpl.html
 [hanafuda]: https://commons.wikimedia.org/wiki/Category:SVG_Hanafuda
