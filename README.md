@@ -39,12 +39,12 @@ make
 
 ## Koi-Koi Scoring Rules
 
-![Pampas Bright][84] ![Chrysanthemum Animal][94]
+![Pampas Bright][81] ![Chrysanthemum Animal][91]
 
 > 작성중
 
-[84]: _image/Hanafuda_8-4.png "Pampas Bright"
-[94]: _image/Hanafuda_9-4.png "Chrysanthemum Animal"
+[81]: _image/81.png "Pampas Bright"
+[91]: _image/91.png "Chrysanthemum Animal"
 
 
 ## Licensing
