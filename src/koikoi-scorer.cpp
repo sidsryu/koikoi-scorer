@@ -2,7 +2,7 @@
 
 using namespace std;
 
-void KoikoiScorer::take(int card)
+void KoikoiScorer::take(Card card)
 {
 	cards.push_back(card);
 }
@@ -19,12 +19,12 @@ int KoikoiScorer::total() const
 
 	for (auto it : cards)
 	{
-		if (it == 11)	bright_count++;
-		if (it == 31)	bright_count++;
-		if (it == 81)	bright_count++;
-		if (it == 121)	bright_count++;
+		if (it == Card::PineBright) bright_count++;
+		if (it == Card::CherryBright) bright_count++;
+		if (it == Card::PampasBright) bright_count++;
+		if (it == Card::PaulowniaBright) bright_count++;
 
-		if (it == 111)  is_willow_bright = true;
+		if (it == Card::WillowBright) is_willow_bright = true;
 	}
 
 	if (bright_count == 4 && is_willow_bright) return 10;

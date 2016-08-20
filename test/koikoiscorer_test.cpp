@@ -8,70 +8,70 @@ TEST_GROUP(ScoringHandsTest)
 
 TEST(ScoringHandsTest, FiveBrights)
 {
-	s.take(11);
-	s.take(31);
-	s.take(81);
-	s.take(121);
-	s.take(111);
+	s.take(Card::PineBright);
+	s.take(Card::CherryBright);
+	s.take(Card::PampasBright);
+	s.take(Card::PaulowniaBright);
+	s.take(Card::WillowBright);
 
 	CHECK_EQUAL(10, s.total());
 }
 
 TEST(ScoringHandsTest, FourBrights)
 {
-	s.take(11);
-	s.take(31);
-	s.take(81);
-	s.take(121);
+	s.take(Card::PineBright);
+	s.take(Card::CherryBright);
+	s.take(Card::PampasBright);
+	s.take(Card::PaulowniaBright);
 
 	CHECK_EQUAL(8, s.total());
 }
 
 TEST(ScoringHandsTest, RainyFourBrights)
 {
-	s.take(11);
-	s.take(31);
-	s.take(81);
-	s.take(111);
+	s.take(Card::PineBright);
+	s.take(Card::CherryBright);
+	s.take(Card::PampasBright);	
+	s.take(Card::WillowBright);
 
 	CHECK_EQUAL(5, s.total());
 }
 
 TEST(ScoringHandsTest, ThreeBrights)
 {
-	s.take(11);
-	s.take(31);
-	s.take(81);
+	s.take(Card::PineBright);
+	s.take(Card::CherryBright);
+	s.take(Card::PampasBright);
 
 	CHECK_EQUAL(5, s.total());
 
 	s.clear();
-	s.take(11);
-	s.take(31);
-	s.take(121);
+	s.take(Card::PineBright);
+	s.take(Card::CherryBright);	
+	s.take(Card::PaulowniaBright);
 
 	CHECK_EQUAL(5, s.total());
 
 	s.clear();
-	s.take(11);
-	s.take(81);
-	s.take(121);
+	s.take(Card::PineBright);
+	s.take(Card::PampasBright);
+	s.take(Card::PaulowniaBright);
 
 	CHECK_EQUAL(5, s.total());
 
 	s.clear();
-	s.take(31);
-	s.take(81);
-	s.take(121);
+	s.take(Card::CherryBright);
+	s.take(Card::PampasBright);
+	s.take(Card::PaulowniaBright);
 
 	CHECK_EQUAL(5, s.total());
 }
 
 TEST(ScoringHandsTest, RainyThreeBrights)
 {
-	s.take(11);
-	s.take(31);
-	s.take(111);
+	s.take(Card::PineBright);
+	s.take(Card::CherryBright);	
+	s.take(Card::WillowBright);
 
 	CHECK_EQUAL(0, s.total());
 }
