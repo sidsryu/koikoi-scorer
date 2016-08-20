@@ -75,3 +75,19 @@ TEST(ScoringHandsTest, RainyThreeBrights)
 
 	CHECK_EQUAL(0, s.total());
 }
+
+TEST(ScoringHandsTest, ViewingTheFlower)
+{
+	s.take(Card::CherryBright);
+	s.take(Card::MumsKind);
+
+	CHECK_EQUAL(5, s.total());
+}
+
+TEST(ScoringHandsTest, ViewingTheMoon)
+{
+	s.take(Card::PampasBright);
+	s.take(Card::MumsKind);
+
+	CHECK_EQUAL(5, s.total());
+}
