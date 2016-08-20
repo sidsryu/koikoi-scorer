@@ -46,11 +46,16 @@ int KoikoiScorer::total() const
 		}
 	}
 
-	if (bright_count == 4 && is_willow_bright) return 10;
-	if (bright_count == 4) return 8;
-	if (bright_count == 3) return 5;
-	if (is_sake_cup && is_moon) return 5;
-	if (is_sake_cup && is_flower) return 5;
+	int score = 0;
+	if (bright_count == 4)
+	{
+		if (is_willow_bright) score += 10;
+		else score += 8;
+	}
+
+	if (bright_count == 3) score += 5;
+	if (is_sake_cup && is_moon) score += 5;
+	if (is_sake_cup && is_flower) score += 5;
 	
-	return 0;
+	return score;
 }

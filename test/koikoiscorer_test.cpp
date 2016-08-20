@@ -91,3 +91,21 @@ TEST(ScoringHandsTest, ViewingTheMoon)
 
 	CHECK_EQUAL(5, s.total());
 }
+
+TEST(ScoringHandsTest, BrightViewingCombo)
+{
+	s.take(Card::PineBright);
+	s.take(Card::CherryBright);
+	s.take(Card::PaulowniaBright);
+	s.take(Card::MumsKind);
+
+	CHECK_EQUAL(10, s.total());
+		
+	s.take(Card::PampasBright);
+
+	CHECK_EQUAL(15, s.total());
+
+	s.take(Card::WillowBright);
+
+	CHECK_EQUAL(20, s.total());
+}
