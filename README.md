@@ -40,26 +40,127 @@ make
 
 현재 목표로 잡고 있는 기본 규칙은 아래와 같습니다;
 
-* Nintendo default rules
+* [Nintendo rules][nintendo]
 
 만들 선택 규칙은 다음과 같습니다;
 
+* The sake cup(mums kind) to count a kind and a plain at the same time.
 * 1 extra point for each additional ribbon after Red-Ribbons and/or Blue-Ribbons
 * 1 extra point for each additional kind after Boar-Deer-Butterfly
-* Rainy-Four-Brights
 * Viewing-the-Flower
 * Viewing-the-Moon
-* The sake cup to count a kind and a plain at the same time.
 
+[nintendo]: https://www.nintendo.co.jp/n09/hana-kabu_games/
 
 ## Koi-Koi Scoring Rules
 
-![Pampas Bright][81] ![Chrysanthemum Animal][91]
+### Instance Wins
 
-> 작성중
+* Four-Hands - 6 pts., begining hand has all four cards of the same suit.
 
+    ![Pine Bright][11]![Pine Ribbon][12]![Pine Plain][13]![Pine Plain][14]
+
+* Sticky - 6 pts., beginig hand has four pairs of cards of matching suits.
+
+    ![Plum Ribbon][22]![Plum Plain][23]
+    ![Wisteria Kind][41]![Wisteria Plain][44]
+    ![Paulownia Plain][124]![Paulownia Plain][122]
+    ![Pampas Bright][81]![Pampas Plain][84]
+
+### Scoring Hands
+
+* Five-Brights - 10 pts.
+
+    ![Pine Bright][11]![Cherry Bright][31]![Pampas Bright][81]![Paulownia Bright][121]![Willow Bright][111]
+
+* Four-Brights - 8 pts.
+
+    ![Pine Bright][11]![Cherry Bright][31]![Pampas Bright][81]![Paulownia Bright][121]
+
+* Three-Brights - 5 pts., any three brights without willow.
+
+    ![Pine Bright][11]![Cherry Bright][31]![Pampas Bright][81]
+
+* Viewing-the-Flower - 5 pts.
+
+    ![Cherry Bright][31]![Mums Kind][91]
+
+* Viewing-the-Moon - 5 pts.
+
+    ![Pampas Bright][81]![Mums Kind][91]
+
+* Boar-Deer-Butterfly - 5 pts.
+
+    ![Clover Kind][71]![Maple Kind][101]![Peony Kind][61]
+
+* Red-Ribbons - 5 pts., all three poetry ribbons.
+
+    ![Pine Ribbon][12]![Plum Ribbon][22]![Cherry Ribbon][32]
+
+* Blue-Ribbons - 5 pts., all three purple ribbons.
+
+    ![Mums Ribbon][92]![Peony Ribbon][62]![Maple Ribbon][102]
+
+* Kinds - 1 pt., five kinds. 1 extra pt. for each additional kind.     
+* Riboons - 1 pt., five ribbons. 1 extra pt. for each additional ribbon.
+* Plains - 1 pt., ten plains. 1 extra pt. for each additional plain.
+
+### Etc.
+
+* It is double that 7 or more points in total
+
+* The sake cup to count a kind and a plain at the same time.
+
+    ![Mums Kind][91]
+
+[11]: _image/11.png "Pine Bright"
+[12]: _image/12.png "Pine Ribbon"
+[13]: _image/13.png "Pine Plain"
+[14]: _image/14.png "Pine Plain"
+[21]: _image/21.png "Plum Kind"
+[22]: _image/22.png "Plum Ribbon"
+[23]: _image/23.png "Plum Plain"
+[24]: _image/24.png "Plum Plain"
+[31]: _image/31.png "Cherry Bright" 
+[32]: _image/32.png "Cherry Ribbon"
+[33]: _image/33.png "Cherry Plain"
+[34]: _image/34.png "Cherry Plain"
+[41]: _image/41.png "Wisteria Kind"
+[42]: _image/42.png "Wisteria Ribbon"
+[43]: _image/43.png "Wisteria Plain"
+[44]: _image/44.png "Wisteria Plain"
+[51]: _image/51.png "Iris Kind"
+[52]: _image/52.png "Iris Ribbon"
+[53]: _image/53.png "Iris Plain"
+[54]: _image/54.png "Iris Plain"
+[61]: _image/61.png "Peony Kind"
+[62]: _image/62.png "Peony Ribbon"
+[63]: _image/63.png "Peony Plain"
+[64]: _image/64.png "Peony Plain"
+[71]: _image/71.png "Clover Kind"
+[72]: _image/72.png "Clover Ribbon"
+[73]: _image/73.png "Clover Plain"
+[74]: _image/74.png "Clover Plain"
 [81]: _image/81.png "Pampas Bright"
-[91]: _image/91.png "Chrysanthemum Animal"
+[82]: _image/82.png "Pampas Kind"
+[83]: _image/83.png "Pampas Plain"
+[84]: _image/84.png "Pampas Plain"
+[91]: _image/91.png "Mums Kind"  
+[92]: _image/92.png "Mums Ribbon" 
+[93]: _image/93.png "Mums Plain"
+[94]: _image/94.png "Mums Plain"
+[101]: _image/101.png "Maple Kind"
+[102]: _image/102.png "Maple Ribbon"
+[103]: _image/103.png "Maple Plain"
+[104]: _image/104.png "Maple Plan"
+[111]: _image/111.png "Willow Bright"
+[112]: _image/112.png "Willow Kind"
+[113]: _image/113.png "Willow Bribbon"
+[114]: _image/114.png "Willow Plain"
+[121]: _image/121.png "Paulownia Bright"
+[122]: _image/122.png "Paulownia Plain"
+[123]: _image/123.png "Paulownia Plain"
+[124]: _image/124.png "Paulownia Plain"
 
 
 ## Licensing
