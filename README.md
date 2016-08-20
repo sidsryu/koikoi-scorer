@@ -34,7 +34,22 @@ make
 
 ## Features
 
-> 작성중
+점수계산이 단순한 편인 낮은점수 규칙을 사용하기로 합니다.
+낮은점수 규칙은 5광을 10점으로 계산합니다.
+공식 설명서가 있는 닌텐도 규칙을 쓰기로 했습니다.
+
+현재 목표로 잡고 있는 기본 규칙은 아래와 같습니다;
+
+* Nintendo default rules
+
+만들 선택 규칙은 다음과 같습니다;
+
+* 1 extra point for each additional ribbon after Red-Ribbons and/or Blue-Ribbons
+* 1 extra point for each additional kind after Boar-Deer-Butterfly
+* Rainy-Four-Brights
+* Viewing-the-Flower
+* Viewing-the-Moon
+* The sake cup to count a kind and a plain at the same time.
 
 
 ## Koi-Koi Scoring Rules
@@ -52,6 +67,8 @@ make
 This project is licensed under the terms of [the MIT licnese][license].
 
 It is licensed under the terms of [the GNU General Public License][gpl], 
-that all images in the `_image` directory and the documents contain the images.
+that all hanafuda images in the `_image` directory and the documents contain the images.
+The images are files from [Wikimedia Commons][wikimedia].
 
 [gpl]: https://www.gnu.org/licenses/gpl.html
+[wikimedia]: https://commons.wikimedia.org/wiki/Category:SVG_Hanafuda
