@@ -103,7 +103,7 @@ TEST(ScoringHandsTest, BrightViewingCombo)
 		
 	s.take(Card::PampasBright);
 
-	CHECK_EQUAL(15, s.total());
+	CHECK_EQUAL(18, s.total());
 
 	s.take(Card::WillowBright);
 
