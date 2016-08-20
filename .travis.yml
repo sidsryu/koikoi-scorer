@@ -10,15 +10,15 @@ addons:
   apt:
     sources:  
       - ubuntu-toolchain-r-test
-      - llvm-toolchain-precise-3.7
+      - llvm-toolchain-precise-3.9
     packages:
-      - clang-3.7
-      - g++-5
-      - gcc-5
+      - clang-3.9
+      - g++-6
+      - gcc-6
 
 before_script:
-  - if [ ${CXX} = 'clang++' ]; then export CXX='clang++-3.7'; fi
-  - if [ ${CXX} = 'g++' ]; then export CXX='g++-5'; fi
+  - if [ ${CXX} = 'clang++' ]; then export CXX='clang++-3.9'; fi
+  - if [ ${CXX} = 'g++' ]; then export CXX='g++-6'; fi
 script:
   - cd build
   - cmake .. && make
