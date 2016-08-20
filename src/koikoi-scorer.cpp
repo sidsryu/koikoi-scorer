@@ -1,5 +1,4 @@
 #include "koikoi-scorer.h"
-#include <set>
 
 using namespace std;
 
