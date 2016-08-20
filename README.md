@@ -101,7 +101,7 @@ make
 
     ![Mums Ribbon][92]![Peony Ribbon][62]![Maple Ribbon][102]
 
-* Kinds - 1 pt., five kinds. 1 extra pt. for each additional kind.     
+* Kinds - 1 pt., five kinds. 1 extra pt. for each additional kind.
 * Riboons - 1 pt., five ribbons. 1 extra pt. for each additional ribbon.
 * Plains - 1 pt., ten plains. 1 extra pt. for each additional plain.
 
