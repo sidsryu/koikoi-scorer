@@ -1,6 +1,6 @@
 #pragma once
 
-#include <vector>
+#include <set>
 #include "card-define.h"
 
 class KoikoiScorer
@@ -11,5 +11,10 @@ public:
     int total() const;
 
 private:
-	std::vector<Card> cards;
+	bool isBright(Card card) const;
+	bool hasCard(Card card) const;
+
+private:	
+	std::set<Card> cards;
+	std::set<Card> brights;
 };
