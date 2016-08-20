@@ -109,3 +109,12 @@ TEST(ScoringHandsTest, BrightViewingCombo)
 
 	CHECK_EQUAL(20, s.total());
 }
+
+TEST(ScoringHandsTest, BoarDeerButterfly)
+{
+	s.take(Card::CloverKind);
+	s.take(Card::MapleKind);
+	s.take(Card::PeonyKind);
+
+	CHECK_EQUAL(5, s.total());
+}

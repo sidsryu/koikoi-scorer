@@ -20,6 +20,10 @@ int KoikoiScorer::total() const
 	bool is_moon = false;
 	bool is_flower = false;
 
+	bool is_boar = false;
+	bool is_deer = false;
+	bool is_butterfly = false;
+
 	for (auto it : cards)
 	{
 		if (it == Card::PineBright) bright_count++;
@@ -44,6 +48,10 @@ int KoikoiScorer::total() const
 		{
 			is_sake_cup = true;
 		}
+
+		if (it == Card::CloverKind) is_boar = true;
+		if (it == Card::MapleKind) is_deer = true;
+		if (it == Card::PeonyKind) is_butterfly = true;
 	}
 
 	int score = 0;
@@ -56,6 +64,7 @@ int KoikoiScorer::total() const
 	if (bright_count == 3) score += 5;
 	if (is_sake_cup && is_moon) score += 5;
 	if (is_sake_cup && is_flower) score += 5;
+	if (is_boar && is_deer && is_butterfly) score += 5;
 	
 	return score;
 }
