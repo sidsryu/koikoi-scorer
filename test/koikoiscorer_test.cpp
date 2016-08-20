@@ -27,6 +27,16 @@ TEST(ScoringHandsTest, FourBrights)
 	CHECK_EQUAL(8, s.total());
 }
 
+TEST(ScoringHandsTest, RainyFourBrights)
+{
+	s.take(11);
+	s.take(31);
+	s.take(81);
+	s.take(111);
+
+	CHECK_EQUAL(5, s.total());
+}
+
 TEST(ScoringHandsTest, ThreeBrights)
 {
 	s.take(11);
@@ -55,4 +65,13 @@ TEST(ScoringHandsTest, ThreeBrights)
 	s.take(121);
 
 	CHECK_EQUAL(5, s.total());
+}
+
+TEST(ScoringHandsTest, RainyThreeBrights)
+{
+	s.take(11);
+	s.take(31);
+	s.take(111);
+
+	CHECK_EQUAL(0, s.total());
 }

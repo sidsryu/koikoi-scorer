@@ -15,6 +15,7 @@ void KoikoiScorer::clear()
 int KoikoiScorer::total() const
 {
 	int bright_count = 0;
+	bool is_willow_bright = false;
 
 	for (auto it : cards)
 	{
@@ -22,10 +23,11 @@ int KoikoiScorer::total() const
 		if (it == 31)	bright_count++;
 		if (it == 81)	bright_count++;
 		if (it == 121)	bright_count++;
-		if (it == 111)	bright_count++;
+
+		if (it == 111)  is_willow_bright = true;
 	}
 
-	if (bright_count == 5) return 10;
+	if (bright_count == 4 && is_willow_bright) return 10;
 	if (bright_count == 4) return 8;
 	if (bright_count == 3) return 5;
 
