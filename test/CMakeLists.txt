@@ -1,5 +1,6 @@
 set(test_src
     main.cpp
+	koikoiscorer_test.cpp
 )
 
 set(cpputest_lib
@@ -18,6 +19,7 @@ else ()
 	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -include \"${cpputest_malloc_macro}\"")
 endif ()
 
+include_directories(${PROJECT_SOURCE_DIR}/src)
 include_directories(${cpputest_home}/include)
 link_directories(${cpputest_home}/lib)
 
@@ -27,9 +29,9 @@ set_target_properties(koikoi-scorer-tests PROPERTIES RUNTIME_OUTPUT_DIRECTORY_DE
 set_target_properties(koikoi-scorer-tests PROPERTIES RUNTIME_OUTPUT_DIRECTORY_RELEASE ${CMAKE_CURRENT_BINARY_DIR})
 
 if (WIN32)
-    target_link_libraries(koikoi-scorer-tests ${cpputest_lib} winmm.lib)
+    target_link_libraries(koikoi-scorer-tests koikoi-scorer ${cpputest_lib} winmm.lib)
 else ()
-	target_link_libraries(koikoi-scorer-tests ${cpputest_lib})
+	target_link_libraries(koikoi-scorer-tests koikoi-scorer ${cpputest_lib})
 endif ()
 
 add_custom_command(TARGET koikoi-scorer-tests POST_BUILD COMMAND koikoi-scorer-tests)

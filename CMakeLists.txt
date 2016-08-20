@@ -2,6 +2,8 @@ project(koikoi-scorer)
 
 cmake_minimum_required(VERSION 2.4)
 
+
+# build configuration
 set(CMAKE_CONFIGURATION_TYPES Debug Release)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
 
@@ -13,7 +15,7 @@ include(ExternalProject)
 
 set(cpputest_cmake_args
 	-DCMAKE_INSTALL_PREFIX=${cpputest_home}
-    -DCMAKE_BUILD_TEYP=Release
+    -DCMAKE_BUILD_TYPE=Release
 	-DTESTS=OFF
 )
 ExternalProject_Add(CppUTest
@@ -22,6 +24,7 @@ ExternalProject_Add(CppUTest
     GIT_TAG v3.8
 	CMAKE_ARGS ${cpputest_cmake_args}
 )
+
 
 # koikoi-scorer projects
 add_subdirectory(src)
