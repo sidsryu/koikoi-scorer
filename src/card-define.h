@@ -54,6 +54,8 @@ enum class Card
 
 // NOTE: Custome hash for enum class.
 // NOTE: It is code that for C++14 not full supported compilers.
+#include <functional>
+
 namespace std {
 template <> struct hash<Card>
 {
