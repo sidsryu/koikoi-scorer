@@ -20,11 +20,20 @@ private:
 	int kindsScore() const;
 	int ribbonsScore() const;
 	int plainsScore() const;
-	int viewingScore() const;	
-	int sevenDoubleScore(int score) const;
+	int specialScore() const;
+	int finalScore(int total_score) const;
 
+	bool hasBoarDeerButterfly() const;
+	bool hasRedRibbons() const;
+	bool hasBlueRibbons() const;
+	bool hasViewingTheFlower() const;
+	bool hasViewingTheMoon() const;
 	bool hasCard(Card card) const;	
 	bool hasRule(Rule rule) const;
+
+	size_t countForKindsPoint() const;
+	size_t countForRibbonsPoint() const;
+	int extraPlainCount() const;
 
 private:
 	std::set<Card> cards;
