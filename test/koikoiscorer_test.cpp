@@ -152,7 +152,7 @@ TEST(ScoringHandsTest, Kinds)
 	CHECK_EQUAL(1, s.total());
 }
 
-TEST(ScoringHandsTest, AllKinds)
+TEST(ScoringHandsTest, AllKindCombo)
 {
 	s.take(Card::PlumKind);
 	s.take(Card::WisteriaKind);
@@ -181,7 +181,7 @@ TEST(ScoringHandsTest, Ribbons)
 	CHECK_EQUAL(1, s.total());
 }
 
-TEST(ScoringHandsTest, AllRibbons)
+TEST(ScoringHandsTest, AllRibbonCombo)
 {
 	s.take(Card::PineRibbon);
 	s.take(Card::PlumRibbon);
@@ -195,4 +195,40 @@ TEST(ScoringHandsTest, AllRibbons)
 	s.take(Card::WillowRibbon);
 
 	CHECK_EQUAL(16, s.total());
+}
+
+TEST(ScoringHandsTest, Plains)
+{
+	s.take(Card::PinePlain1);
+	s.take(Card::PinePlain2);
+	s.take(Card::PlumPlain1);
+	s.take(Card::PlumPlain2);
+	s.take(Card::CherryPlain1);
+	s.take(Card::CherryPlain2);
+	s.take(Card::WisteriaPlain1);
+	s.take(Card::WisteriaPlain2);
+	s.take(Card::IrisPlain1);
+
+	CHECK_EQUAL(0, s.total());
+
+	s.take(Card::IrisPlain2);
+
+	CHECK_EQUAL(1, s.total());
+
+	s.take(Card::PeonyPlain1);
+	s.take(Card::PeonyPlain2);
+	s.take(Card::CloverPlain1);
+	s.take(Card::CloverPlain2);
+	s.take(Card::PampasPlain1);
+	s.take(Card::PampasPlain2);
+	s.take(Card::MumsPlain1);
+	s.take(Card::MumsPlain2);
+	s.take(Card::MaplePlain1);
+	s.take(Card::MaplePlain2);
+	s.take(Card::WillowPlain);
+	s.take(Card::PaulowniaPlain1);
+	s.take(Card::PaulowniaPlain2);
+	s.take(Card::PaulowniaPlain3);
+
+	CHECK_EQUAL(15, s.total());
 }

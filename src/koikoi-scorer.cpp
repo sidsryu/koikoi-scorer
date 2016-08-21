@@ -7,9 +7,11 @@ using namespace std;
 void KoikoiScorer::take(Card card)
 {
 	cards.insert(card);
+
 	if (isBright(card)) brights.insert(card);
 	if (isKind(card)) kinds.insert(card);
 	if (isRibbon(card)) ribbons.insert(card);
+	if (isPlain(card)) plains.insert(card);
 }
 
 void KoikoiScorer::clear()
@@ -44,6 +46,12 @@ int KoikoiScorer::total() const
 	if (5 <= ribbons.size())
 	{
 		score += ribbons.size() - 4;
+	}
+
+	// Plains
+	if (10 <= plains.size())
+	{
+		score += plains.size() - 9;
 	}
 
 	// Viewing
@@ -112,6 +120,36 @@ bool KoikoiScorer::isRibbon(Card card) const
 	if (card == Card::MumsRibbon) return true;
 	if (card == Card::MapleRibbon) return true;
 	if (card == Card::WillowRibbon) return true;
+
+	return false;
+}
+
+bool KoikoiScorer::isPlain(Card card) const
+{
+	if (card == Card::PinePlain1) return true;
+	if (card == Card::PinePlain2) return true;
+	if (card == Card::PlumPlain1) return true;
+	if (card == Card::PlumPlain2) return true;
+	if (card == Card::CherryPlain1) return true;
+	if (card == Card::CherryPlain2) return true;
+	if (card == Card::WisteriaPlain1) return true;
+	if (card == Card::WisteriaPlain2) return true;
+	if (card == Card::IrisPlain1) return true;
+	if (card == Card::IrisPlain2) return true;
+	if (card == Card::PeonyPlain1) return true;
+	if (card == Card::PeonyPlain2) return true;
+	if (card == Card::CloverPlain1) return true;
+	if (card == Card::CloverPlain2) return true;
+	if (card == Card::PampasPlain1) return true;
+	if (card == Card::PampasPlain2) return true;
+	if (card == Card::MumsPlain1) return true;
+	if (card == Card::MumsPlain2) return true;
+	if (card == Card::MaplePlain1) return true;
+	if (card == Card::MaplePlain2) return true;
+	if (card == Card::WillowPlain) return true;
+	if (card == Card::PaulowniaPlain1) return true;
+	if (card == Card::PaulowniaPlain2) return true;
+	if (card == Card::PaulowniaPlain3) return true;
 
 	return false;
 }

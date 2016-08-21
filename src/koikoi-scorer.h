@@ -16,6 +16,7 @@ private:
 	bool isBright(Card card) const;
 	bool isKind(Card card) const;
 	bool isRibbon(Card card) const;
+	bool isPlain(Card card) const;
 	bool hasCard(Card card) const;
 	bool hasCard(std::initializer_list<Card> l) const;
 
@@ -24,4 +25,5 @@ private:
 	std::set<Card> brights;
 	std::set<Card> kinds;
 	std::set<Card> ribbons;
+	std::set<Card> plains;
 };
