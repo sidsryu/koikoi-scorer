@@ -4,5 +4,6 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="instancewins_test.cpp" />
     <ClCompile Include="scoringhands_test.cpp" />
+    <ClCompile Include="koikoiscorer_test.cpp" />
   </ItemGroup>
 </Project>

@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="instancewins_test.cpp" />
+    <ClCompile Include="koikoiscorer_test.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="scoringhands_test.cpp" />
   </ItemGroup>
