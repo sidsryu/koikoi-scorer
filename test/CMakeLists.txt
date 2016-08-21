@@ -1,6 +1,7 @@
 set(test_src
     main.cpp
 	koikoiscorer_test.cpp
+	begininghands_test.cpp
 )
 
 set(cpputest_lib
