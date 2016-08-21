@@ -3,10 +3,12 @@
   <ItemGroup>
     <ClCompile Include="koikoi-scorer.cpp" />
     <ClCompile Include="card-functor.cpp" />
+    <ClCompile Include="begining-hands.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="koikoi-scorer.h" />
     <ClInclude Include="card-define.h" />
     <ClInclude Include="card-functor.h" />
+    <ClInclude Include="begining-hands.h" />
   </ItemGroup>
 </Project>

@@ -21,3 +21,8 @@ struct IsPlain
 {
 	bool operator()(const Card& card) const;
 };
+
+struct Month
+{
+	int operator()(const Card& card) const;
+};
