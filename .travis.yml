@@ -18,7 +18,7 @@ addons:
       - gcc-6
 
 before_script:
-  - if [ ${CXX} = 'clang++' ]; then export CXX='clang++-3.9'; fi
+  - if [ ${CXX} = 'clang++' ]; then export CXX='clang++-3.8'; fi
   - if [ ${CXX} = 'g++' ]; then export CXX='g++-6'; fi
 script:
   - cd build
