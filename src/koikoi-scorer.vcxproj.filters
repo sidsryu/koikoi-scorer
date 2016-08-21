@@ -2,9 +2,11 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="koikoi-scorer.cpp" />
+    <ClCompile Include="card-functor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="koikoi-scorer.h" />
     <ClInclude Include="card-define.h" />
+    <ClInclude Include="card-functor.h" />
   </ItemGroup>
 </Project>

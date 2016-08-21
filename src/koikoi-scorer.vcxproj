@@ -118,10 +118,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="card-functor.cpp" />
     <ClCompile Include="koikoi-scorer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="card-define.h" />
+    <ClInclude Include="card-functor.h" />
     <ClInclude Include="koikoi-scorer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
