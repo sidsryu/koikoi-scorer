@@ -9,6 +9,7 @@ set(scorer_inc
 	card-define.h
 	card-functor.h	
 	begining-hands.h
+	rule-define.h
 )
 
 add_library(koikoi-scorer STATIC ${scorer_src} ${scorer_inc})

@@ -10,5 +10,6 @@
     <ClInclude Include="card-define.h" />
     <ClInclude Include="card-functor.h" />
     <ClInclude Include="begining-hands.h" />
+    <ClInclude Include="rule-define.h" />
   </ItemGroup>
 </Project>

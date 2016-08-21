@@ -1,6 +1,7 @@
 #include "CppUTest/TestHarness.h"
 #include "koikoi-scorer.h"
 #include "card-define.h"
+#include "rule-define.h"
 
 TEST_GROUP(OptionRulesTest)
 {
@@ -15,7 +16,7 @@ TEST(OptionRulesTest, ScoreDoubledWhenSevenOrMorePoints)
 	s.take(Card::PaulowniaBright);
 	s.take(Card::WillowBright);
 
-	s.option();
+	s.addRule(Rule::SevenDouble);
 
 	CHECK_EQUAL(20, s.total());
 }
@@ -41,7 +42,7 @@ TEST(OptionRulesTest, SakeCupToCountKindAndPlain)
 
 	CHECK_EQUAL(1, s.total());
 
-	s.option();
+	s.addRule(Rule::SakeCup);
 
 	CHECK_EQUAL(2, s.total());
 }
@@ -53,7 +54,7 @@ TEST(OptionRulesTest, ViewingTheFlower)
 
 	CHECK_EQUAL(0, s.total());
 
-	s.option();
+	s.addRule(Rule::ViewingTheFlower);
 
 	CHECK_EQUAL(5, s.total());
 }
@@ -65,27 +66,28 @@ TEST(OptionRulesTest, ViewingTheMoon)
 
 	CHECK_EQUAL(0, s.total());
 
-	s.option();
+	s.addRule(Rule::ViewingTheMoon);
 
 	CHECK_EQUAL(5, s.total());
 }
 
 TEST(OptionRulesTest, BrightViewingCombo)
 {
-	s.option(false);
-
 	s.take(Card::PineBright);
 	s.take(Card::CherryBright);
-	s.take(Card::PaulowniaBright);
+	s.take(Card::PaulowniaBright);	
+	s.take(Card::PampasBright);
+	s.take(Card::WillowBright);
+
 	s.take(Card::MumsKind);
 
 	CHECK_EQUAL(10, s.total());
 
-	s.take(Card::PampasBright);
+	s.addRule(Rule::ViewingTheFlower);
+	
+	CHECK_EQUAL(15, s.total());
 
-	CHECK_EQUAL(18, s.total());
-
-	s.take(Card::WillowBright);
+	s.addRule(Rule::ViewingTheMoon);
 
 	CHECK_EQUAL(20, s.total());
 }

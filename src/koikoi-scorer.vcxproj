@@ -127,6 +127,7 @@
     <ClInclude Include="card-define.h" />
     <ClInclude Include="card-functor.h" />
     <ClInclude Include="koikoi-scorer.h" />
+    <ClInclude Include="rule-define.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

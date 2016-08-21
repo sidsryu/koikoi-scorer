@@ -1,6 +1,7 @@
 #include "koikoi-scorer.h"
 #include "card-define.h"
 #include "card-functor.h"
+#include "rule-define.h"
 #include <algorithm>
 
 using namespace std;
@@ -25,16 +26,9 @@ void KoikoiScorer::clear()
 	plains.clear();
 }
 
-void KoikoiScorer::option(bool is_not_double)
+void KoikoiScorer::addRule(Rule rule)
 {
-	if (is_not_double)
-	{
-		is_seven_double = true;
-	}
-
-	is_sake_cup = true;
-	is_viewing_the_flower = true;
-	is_viewing_the_moon = true;
+	rules.insert(rule);
 }
 
 int KoikoiScorer::total() const
@@ -67,7 +61,7 @@ int KoikoiScorer::total() const
 
 	// Plains
 	int extra_plain = 0;
-	if (is_sake_cup && hasCard(Card::MumsKind))
+	if (hasRule(Rule::SakeCup) && hasCard(Card::MumsKind))
 	{
 		extra_plain = 1;
 	}
@@ -80,8 +74,8 @@ int KoikoiScorer::total() const
 	// Viewing
 	if (hasCard(Card::MumsKind))
 	{
-		if (is_viewing_the_flower && hasCard(Card::CherryBright)) score += 5;
-		if (is_viewing_the_moon && hasCard(Card::PampasBright)) score += 5;
+		if (hasRule(Rule::ViewingTheFlower) && hasCard(Card::CherryBright)) score += 5;
+		if (hasRule(Rule::ViewingTheMoon) && hasCard(Card::PampasBright)) score += 5;
 	}
 
 	// Boar-Deer-Butterfly
@@ -103,7 +97,7 @@ int KoikoiScorer::total() const
 	}
 
 	// Options
-	if (is_seven_double && 7 <= score) score *= 2;
+	if (hasRule(Rule::SevenDouble) && 7 <= score) score *= 2;
 
 	return score;
 }
@@ -122,4 +116,10 @@ bool KoikoiScorer::hasCard(initializer_list<Card> l) const
 	}
 
 	return true;
+}
+
+bool KoikoiScorer::hasRule(Rule rule) const
+{
+	auto it = rules.find(rule);
+	return it != rules.end();
 }
