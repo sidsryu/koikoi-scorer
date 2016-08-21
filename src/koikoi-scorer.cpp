@@ -25,6 +25,18 @@ void KoikoiScorer::clear()
 	plains.clear();
 }
 
+void KoikoiScorer::option(bool is_not_double)
+{
+	if (is_not_double)
+	{
+		is_seven_double = true;
+	}
+
+	is_sake_cup = true;
+	is_viewing_the_flower = true;
+	is_viewing_the_moon = true;
+}
+
 int KoikoiScorer::total() const
 {
 	int score = 0;
@@ -54,16 +66,22 @@ int KoikoiScorer::total() const
 	}
 
 	// Plains
-	if (10 <= plains.size())
+	int extra_plain = 0;
+	if (is_sake_cup && hasCard(Card::MumsKind))
 	{
-		score += plains.size() - 9;
+		extra_plain = 1;
+	}
+
+	if (10 <= plains.size() + extra_plain)
+	{
+		score += plains.size() + extra_plain - 9;
 	}
 
 	// Viewing
 	if (hasCard(Card::MumsKind))
 	{
-		if (hasCard(Card::PampasBright)) score += 5;
-		if (hasCard(Card::CherryBright)) score += 5;
+		if (is_viewing_the_flower && hasCard(Card::CherryBright)) score += 5;
+		if (is_viewing_the_moon && hasCard(Card::PampasBright)) score += 5;
 	}
 
 	// Boar-Deer-Butterfly
@@ -83,6 +101,9 @@ int KoikoiScorer::total() const
 	{
 		score += 5;
 	}
+
+	// Options
+	if (is_seven_double && 7 <= score) score *= 2;
 
 	return score;
 }

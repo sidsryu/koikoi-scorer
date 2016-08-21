@@ -12,6 +12,8 @@ public:
 	void clear();
     int total() const;
 
+	void option(bool is_not_double = true);
+
 private:
 	bool hasCard(Card card) const;
 	bool hasCard(std::initializer_list<Card> l) const;
@@ -22,4 +24,9 @@ private:
 	std::set<Card> kinds;
 	std::set<Card> ribbons;
 	std::set<Card> plains;
+
+	bool is_seven_double { false };
+	bool is_sake_cup { false };
+	bool is_viewing_the_flower { false };
+	bool is_viewing_the_moon { false };
 };

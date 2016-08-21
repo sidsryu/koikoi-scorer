@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/sidsryu/koikoi-scorer.svg?branch=master)][travis]
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)][license]
 
-Koi-Koi score calculator for c++14.
+Koi-Koi score calculator for c++14
 
 [license]: https://github.com/sidsryu/koikoi-scorer/blob/master/LICENSE 
 [travis]: https://travis-ci.org/sidsryu/koikoi-scorer
@@ -44,6 +44,7 @@ make
 
 만들 선택 규칙은 다음과 같습니다;
 
+* 7 or more points in total, score doubled.
 * The sake cup(mums kind) to count a kind and a plain at the same time.
 * 1 extra point for each additional ribbon after Red-Ribbons and/or Blue-Ribbons
 * 1 extra point for each additional kind after Boar-Deer-Butterfly
@@ -105,9 +106,9 @@ make
 * Riboons - 1 pt., five ribbons. 1 extra pt. for each additional ribbon.
 * Plains - 1 pt., ten plains. 1 extra pt. for each additional plain.
 
-### Etc.
+### Option Rules
 
-* It is double that 7 or more points in total
+* Score double when 7 or more points in total.
 
 * The sake cup to count a kind and a plain at the same time.
 
