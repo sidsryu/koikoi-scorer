@@ -1,6 +1,6 @@
 #pragma once
 
-enum class Card
+enum Card
 {
 	PineBright = 11,
 	PineRibbon = 12,
@@ -51,20 +51,3 @@ enum class Card
 	PaulowniaPlain2 = 123,
 	PaulowniaPlain3 = 134,
 };
-
-// NOTE: Custome hash for enum class.
-// NOTE: It is code that for C++14 not full supported compilers.
-#include <functional>
-
-namespace std {
-template <> struct hash<Card>
-{
-	size_t operator()(const Card& card) const
-	{
-		using type = underlying_type_t<Card>;
-
-		auto value = static_cast<type>(card);
-		return hash<type>()(value);
-	}
-};
-}
