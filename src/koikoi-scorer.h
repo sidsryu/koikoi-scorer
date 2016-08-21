@@ -1,7 +1,9 @@
 #pragma once
 
 #include <set>
-#include "card-define.h"
+#include <initializer_list>
+
+enum class Card;
 
 class KoikoiScorer
 {
@@ -12,9 +14,14 @@ public:
 
 private:
 	bool isBright(Card card) const;
+	bool isKind(Card card) const;
+	bool isRibbon(Card card) const;
 	bool hasCard(Card card) const;
+	bool hasCard(std::initializer_list<Card> l) const;
 
-private:	
+private:
 	std::set<Card> cards;
 	std::set<Card> brights;
+	std::set<Card> kinds;
+	std::set<Card> ribbons;
 };
