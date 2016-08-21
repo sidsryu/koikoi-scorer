@@ -2,14 +2,14 @@
 #include "begining-hands.h"
 #include "card-define.h"
 
-TEST_GROUP(BeginingHandsTest)
+TEST_GROUP(InstanceWinsTest)
 {
 	const int WINNING_POINTS { 6 };
 
 	BeginingHands h;
 };
 
-TEST(BeginingHandsTest, NoFourHands)
+TEST(InstanceWinsTest, NoFourHands)
 {
 	h.deal(Card::PineBright);
 	h.deal(Card::PineRibbon);
@@ -23,7 +23,7 @@ TEST(BeginingHandsTest, NoFourHands)
 	CHECK_EQUAL(0, h.score());
 }
 
-TEST(BeginingHandsTest, PineFourHands)
+TEST(InstanceWinsTest, PineFourHands)
 {
 	h.deal(Card::PineBright);
 	h.deal(Card::PineRibbon);
@@ -33,7 +33,7 @@ TEST(BeginingHandsTest, PineFourHands)
 	CHECK_EQUAL(WINNING_POINTS, h.score());
 }
 
-TEST(BeginingHandsTest, PlumFourHands)
+TEST(InstanceWinsTest, PlumFourHands)
 {
 	h.deal(Card::PlumKind);
 	h.deal(Card::PlumRibbon);
@@ -43,7 +43,7 @@ TEST(BeginingHandsTest, PlumFourHands)
 	CHECK_EQUAL(WINNING_POINTS, h.score());
 }
 
-TEST(BeginingHandsTest, PaulowniaFourHands)
+TEST(InstanceWinsTest, PaulowniaFourHands)
 {
 	h.deal(Card::PaulowniaBright);
 	h.deal(Card::PaulowniaPlain1);
@@ -53,7 +53,7 @@ TEST(BeginingHandsTest, PaulowniaFourHands)
 	CHECK_EQUAL(WINNING_POINTS, h.score());
 }
 
-TEST(BeginingHandsTest, Sticky)
+TEST(InstanceWinsTest, Sticky)
 {
 	h.deal(Card::PlumRibbon);
 	h.deal(Card::PlumPlain1);
@@ -67,7 +67,7 @@ TEST(BeginingHandsTest, Sticky)
 	CHECK_EQUAL(WINNING_POINTS, h.score());
 }
 
-TEST(BeginingHandsTest, NoSticky)
+TEST(InstanceWinsTest, NoSticky)
 {
 	h.deal(Card::PlumRibbon);
 	h.deal(Card::PlumPlain1);
@@ -81,7 +81,7 @@ TEST(BeginingHandsTest, NoSticky)
 	CHECK_EQUAL(0, h.score());
 }
 
-TEST(BeginingHandsTest, Clear)
+TEST(InstanceWinsTest, Clear)
 {
 	h.deal(Card::PineBright);
 	h.deal(Card::PineRibbon);
