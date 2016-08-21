@@ -1,6 +1,6 @@
 #pragma once
 
-enum Card
+enum class Card
 {
 	PineBright = 11,
 	PineRibbon = 12,
