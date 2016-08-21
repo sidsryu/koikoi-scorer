@@ -3,6 +3,7 @@ set(test_src
 	scoringhands_test.cpp
 	instancewins_test.cpp
 	koikoiscorer_test.cpp
+	optionrules_test.cpp
 )
 
 set(cpputest_lib
