@@ -32,6 +32,49 @@ make
 [cpputest]: https://github.com/cpputest/cpputest
 
 
+## Usage
+
+플레이어마다 별도의 점수 계산기를 만듭니다. 매 획득 카드를 입력해줍니다. 점수 확인이 필요할때면, `total()` 함수로 알아낼 수 있습니다.
+
+```c++
+#include "koikoi-scorer.h"
+#include "card-define.h"
+
+KoikoiScorer player1;
+KoikoiScorer player2;
+
+player1.take(Card::PineBright);
+player1.take(Card::PinePlain2);
+player1.take(Card::CherryRibbon);
+player1.take(Card::CherryPlain1);
+
+player2.take(Card::PampasPlain1);
+player2.take(Card::PampasPlain2);
+
+...
+
+auto score = palyer1.total();
+
+```
+
+또한 선택 규칙을 선별적으로 적용할 수 있습니다. 현재 지원가능한 모든 선택규칙은 비활성화 상태입니다. 
+
+```c++
+#include "koikoi-scorer.h"
+#include "rule-define.h"
+
+KoikoiScorer s;
+
+s.addRule(Rule::SevenOrMoreDoubled);
+s.addRule(Rule::SakeCupBothKindAndPlain);
+s.addRule(Rule::ViewingTheFlower);
+s.addRule(Rule::ViewingTheMoon);
+
+...
+
+auto score = s.total();
+```
+
 ## Features
 
 점수계산이 단순한 편인 낮은점수 규칙을 사용하기로 합니다.
@@ -42,7 +85,7 @@ make
 
 * [Nintendo rules][nintendo]
 
-만들 선택 규칙은 다음과 같습니다;
+지원하는 선택 규칙은 다음과 같습니다;
 
 * 7 or more points in total, score doubled.
 * The sake cup(mums kind) to count a kind and a plain at the same time.
@@ -105,14 +148,6 @@ make
 * Kinds - 1 pt., five kinds. 1 extra pt. for each additional kind.
 * Riboons - 1 pt., five ribbons. 1 extra pt. for each additional ribbon.
 * Plains - 1 pt., ten plains. 1 extra pt. for each additional plain.
-
-### Option Rules
-
-* Score double when 7 or more points in total.
-
-* The sake cup to count a kind and a plain at the same time.
-
-    ![Mums Kind][91]
 
 [11]: _image/11.png "Pine Bright"
 [12]: _image/12.png "Pine Ribbon"
