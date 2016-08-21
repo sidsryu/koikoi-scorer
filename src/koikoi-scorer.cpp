@@ -16,106 +16,144 @@ void KoikoiScorer::take(Card card)
 	if (IsPlain()(card)) plains.insert(card);
 }
 
+void KoikoiScorer::addRule(Rule rule)
+{
+	rules.insert(rule);
+}
+
 void KoikoiScorer::clear()
 {
 	cards.clear();
-
 	brights.clear();
 	kinds.clear();
 	ribbons.clear();
 	plains.clear();
-}
 
-void KoikoiScorer::addRule(Rule rule)
-{
-	rules.insert(rule);
+	rules.clear();
 }
 
 int KoikoiScorer::total() const
 {
 	int score = 0;
 
-	// Brights
-	if (hasCard(Card::WillowBright))
-	{
-		if (5 == brights.size()) score += 10;
-		if (4 == brights.size()) score += 5;
-	}
-	else
-	{
-		if (4 == brights.size()) score += 8;
-		if (3 == brights.size()) score += 5;
-	}
+	score += boilerplateScore();
+	score += brightsScore();
+	score += kindsScore();
+	score += ribbonsScore();
+	score += plainsScore();		
+	score += viewingScore();
 
-	// Kinds
-	if (5 <= kinds.size())
-	{
-		score += kinds.size() - 4;
-	}
+	score = sevenDoubleScore(score);	
+	return score;
+}
 
-	// Ribbons
-	if (5 <= ribbons.size())
-	{
-		score += ribbons.size() - 4;
-	}
-
-	// Plains
-	int extra_plain = 0;
-	if (hasRule(Rule::SakeCup) && hasCard(Card::MumsKind))
-	{
-		extra_plain = 1;
-	}
-
-	if (10 <= plains.size() + extra_plain)
-	{
-		score += plains.size() + extra_plain - 9;
-	}
-
-	// Viewing
-	if (hasCard(Card::MumsKind))
-	{
-		if (hasRule(Rule::ViewingTheFlower) && hasCard(Card::CherryBright)) score += 5;
-		if (hasRule(Rule::ViewingTheMoon) && hasCard(Card::PampasBright)) score += 5;
-	}
+int KoikoiScorer::boilerplateScore() const
+{
+	int score = 0;
 
 	// Boar-Deer-Butterfly
-	if (hasCard({ Card::CloverKind, Card::MapleKind, Card::PeonyKind }))
+	if (hasCard(Card::CloverKind) 
+		&& hasCard(Card::MapleKind) && hasCard(Card::PeonyKind))
 	{
 		score += 5;
 	}
 
 	// RedRibbon
-	if (hasCard({ Card::PineRibbon, Card::PlumRibbon, Card::CherryRibbon }))
+	if (hasCard(Card::PineRibbon)
+		&& hasCard(Card::PlumRibbon) && hasCard(Card::CherryRibbon))
 	{
 		score += 5;
 	}
 
 	// BlueRibbon
-	if (hasCard({ Card::MumsRibbon, Card::PeonyRibbon, Card::MapleRibbon }))
+	if (hasCard(Card::MumsRibbon)
+		&& hasCard(Card::PeonyRibbon) && hasCard(Card::MapleRibbon))
 	{
 		score += 5;
 	}
 
-	// Options
-	if (hasRule(Rule::SevenDouble) && 7 <= score) score *= 2;
+	return score;
+}
+
+int KoikoiScorer::brightsScore() const
+{
+	if (hasCard(Card::WillowBright))
+	{
+		if (5 == brights.size()) return 10;
+		if (4 == brights.size()) return 5;
+	}
+	else
+	{
+		if (4 == brights.size()) return 8;
+		if (3 == brights.size()) return 5;
+	}
+
+	return 0;
+}
+
+int KoikoiScorer::kindsScore() const
+{
+	if (5 <= kinds.size())
+	{
+		return kinds.size() - 4;
+	}
+
+	return 0;
+}
+
+int KoikoiScorer::ribbonsScore() const
+{
+	if (5 <= ribbons.size())
+	{
+		return ribbons.size() - 4;
+	}
+
+	return 0;
+}
+
+int KoikoiScorer::plainsScore() const
+{
+	int extra_plains = 0;
+	if (hasRule(Rule::SakeCup) && hasCard(Card::MumsKind))
+	{
+		extra_plains = 1;
+	}
+
+	int total_plains = plains.size() + extra_plains;
+	if (10 <= total_plains)
+	{
+		return total_plains - 9;
+	}
+
+	return 0;
+}
+
+int KoikoiScorer::viewingScore() const
+{
+	if (!hasCard(Card::MumsKind)) return 0;
+
+	int score = 0;
+
+	if (hasRule(Rule::ViewingTheFlower) && hasCard(Card::CherryBright)) score += 5;
+	if (hasRule(Rule::ViewingTheMoon) && hasCard(Card::PampasBright)) score += 5;
 
 	return score;
+}
+
+int KoikoiScorer::sevenDoubleScore(int total_score) const
+{
+	if (hasRule(Rule::SevenDouble) && 7 <= total_score)
+	{
+		return total_score * 2;
+	}
+
+	return total_score;
 }
 
 bool KoikoiScorer::hasCard(Card card) const
 {
 	auto it = cards.find(card);
 	return it != cards.end();
-}
-
-bool KoikoiScorer::hasCard(initializer_list<Card> l) const
-{
-	for (auto it : l)
-	{
-		if (!hasCard(it))	return false;
-	}
-
-	return true;
 }
 
 bool KoikoiScorer::hasRule(Rule rule) const

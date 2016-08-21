@@ -10,14 +10,21 @@ class KoikoiScorer
 {
 public:
     void take(Card card);
-	void clear();
 	void addRule(Rule option);
+	void clear();	
 
     int total() const;
 
 private:
-	bool hasCard(Card card) const;
-	bool hasCard(std::initializer_list<Card> l) const;
+	int boilerplateScore() const;
+	int brightsScore() const;
+	int kindsScore() const;
+	int ribbonsScore() const;
+	int plainsScore() const;
+	int viewingScore() const;	
+	int sevenDoubleScore(int score) const;
+
+	bool hasCard(Card card) const;	
 	bool hasRule(Rule rule) const;
 
 private:
