@@ -17,7 +17,11 @@ void KoikoiScorer::take(Card card)
 void KoikoiScorer::clear()
 {
 	cards.clear();
+
 	brights.clear();
+	kinds.clear();
+	ribbons.clear();
+	plains.clear();
 }
 
 int KoikoiScorer::total() const
