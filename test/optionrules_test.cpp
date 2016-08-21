@@ -16,7 +16,7 @@ TEST(OptionRulesTest, ScoreDoubledWhenSevenOrMorePoints)
 	s.take(Card::PaulowniaBright);
 	s.take(Card::WillowBright);
 
-	s.addRule(Rule::SevenDouble);
+	s.addRule(Rule::SevenOrMoreDoubled);
 
 	CHECK_EQUAL(20, s.total());
 }
@@ -42,7 +42,7 @@ TEST(OptionRulesTest, SakeCupToCountKindAndPlain)
 
 	CHECK_EQUAL(1, s.total());
 
-	s.addRule(Rule::SakeCup);
+	s.addRule(Rule::SakeCupBothKindAndPlain);
 
 	CHECK_EQUAL(2, s.total());
 }
@@ -90,4 +90,39 @@ TEST(OptionRulesTest, BrightViewingCombo)
 	s.addRule(Rule::ViewingTheMoon);
 
 	CHECK_EQUAL(20, s.total());
+}
+
+TEST(OptionRulesTest, ExtraPointAfterBoarDeerButterfly)
+{
+	s.take(Card::CloverKind);
+	s.take(Card::MapleKind);
+	s.take(Card::PeonyKind);
+
+	s.take(Card::PlumKind);
+
+	s.addRule(Rule::ExtraPointAfterBoarDeerButterfly);
+
+	CHECK_EQUAL(6, s.total());
+}
+
+TEST(OptionRulesTest, ExtraPointAfterRedBlueRibbons)
+{
+	s.take(Card::PineRibbon);
+	s.take(Card::PlumRibbon);
+	s.take(Card::CherryRibbon);
+
+	s.take(Card::MumsRibbon);
+	s.take(Card::PeonyRibbon);
+
+	s.addRule(Rule::ExtraPointAfterRedBlueRibbons);
+
+	CHECK_EQUAL(7, s.total());
+
+	s.take(Card::MapleRibbon);
+
+	CHECK_EQUAL(10, s.total());
+
+	s.take(Card::WillowRibbon);
+
+	CHECK_EQUAL(11, s.total());
 }

@@ -36,7 +36,6 @@ int KoikoiScorer::total() const
 {
 	int score = 0;
 
-	score += boilerplateScore();
 	score += brightsScore();
 	score += kindsScore();
 	score += ribbonsScore();
@@ -44,34 +43,6 @@ int KoikoiScorer::total() const
 	score += viewingScore();
 
 	score = sevenDoubleScore(score);	
-	return score;
-}
-
-int KoikoiScorer::boilerplateScore() const
-{
-	int score = 0;
-
-	// Boar-Deer-Butterfly
-	if (hasCard(Card::CloverKind) 
-		&& hasCard(Card::MapleKind) && hasCard(Card::PeonyKind))
-	{
-		score += 5;
-	}
-
-	// RedRibbon
-	if (hasCard(Card::PineRibbon)
-		&& hasCard(Card::PlumRibbon) && hasCard(Card::CherryRibbon))
-	{
-		score += 5;
-	}
-
-	// BlueRibbon
-	if (hasCard(Card::MumsRibbon)
-		&& hasCard(Card::PeonyRibbon) && hasCard(Card::MapleRibbon))
-	{
-		score += 5;
-	}
-
 	return score;
 }
 
@@ -93,28 +64,77 @@ int KoikoiScorer::brightsScore() const
 
 int KoikoiScorer::kindsScore() const
 {
-	if (5 <= kinds.size())
+	int score = 0;
+	bool is_bdb = false;
+	
+	// Boar-Deer-Butterfly
+	if (hasCard(Card::CloverKind)
+		&& hasCard(Card::MapleKind) && hasCard(Card::PeonyKind))
 	{
-		return kinds.size() - 4;
+		score += 5;
+		is_bdb = true;
 	}
 
-	return 0;
+	// Rule
+	size_t extra_point_begin_count = 5;
+	if (hasRule(Rule::ExtraPointAfterBoarDeerButterfly) && is_bdb)
+	{
+		extra_point_begin_count = 4;
+	}
+
+	// Kinds
+	if (extra_point_begin_count <= kinds.size())
+	{
+		score += kinds.size() - (extra_point_begin_count-1);
+	}
+
+	return score;
 }
 
 int KoikoiScorer::ribbonsScore() const
 {
-	if (5 <= ribbons.size())
+	int score = 0;
+	bool is_red_ribbons = false;
+	bool is_blue_ribbons = false;
+
+	// RedRibbon
+	if (hasCard(Card::PineRibbon)
+		&& hasCard(Card::PlumRibbon) && hasCard(Card::CherryRibbon))
 	{
-		return ribbons.size() - 4;
+		score += 5;
+		is_red_ribbons = true;
 	}
 
-	return 0;
+	// BlueRibbon
+	if (hasCard(Card::MumsRibbon)
+		&& hasCard(Card::PeonyRibbon) && hasCard(Card::MapleRibbon))
+	{
+		score += 5;
+		is_blue_ribbons = true;
+	}
+	
+	// Rule
+	size_t extra_point_begin_count = 5;
+	if (hasRule(Rule::ExtraPointAfterRedBlueRibbons))
+	{
+		if (is_red_ribbons) extra_point_begin_count = 4;
+		if (is_blue_ribbons) extra_point_begin_count = 4;
+		if (is_red_ribbons && is_blue_ribbons) extra_point_begin_count = 7;
+	}
+
+	// Ribbons
+	if (extra_point_begin_count <= ribbons.size())
+	{
+		score += ribbons.size() - (extra_point_begin_count-1);
+	}
+
+	return score;
 }
 
 int KoikoiScorer::plainsScore() const
 {
 	int extra_plains = 0;
-	if (hasRule(Rule::SakeCup) && hasCard(Card::MumsKind))
+	if (hasRule(Rule::SakeCupBothKindAndPlain) && hasCard(Card::MumsKind))
 	{
 		extra_plains = 1;
 	}
@@ -142,7 +162,7 @@ int KoikoiScorer::viewingScore() const
 
 int KoikoiScorer::sevenDoubleScore(int total_score) const
 {
-	if (hasRule(Rule::SevenDouble) && 7 <= total_score)
+	if (hasRule(Rule::SevenOrMoreDoubled) && 7 <= total_score)
 	{
 		return total_score * 2;
 	}

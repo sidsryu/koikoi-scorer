@@ -16,7 +16,6 @@ public:
     int total() const;
 
 private:
-	int boilerplateScore() const;
 	int brightsScore() const;
 	int kindsScore() const;
 	int ribbonsScore() const;

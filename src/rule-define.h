@@ -2,8 +2,10 @@
 
 enum class Rule
 {
-	SevenDouble,
-	SakeCup,
+	SevenOrMoreDoubled,
+	SakeCupBothKindAndPlain,
 	ViewingTheFlower,
 	ViewingTheMoon,
+	ExtraPointAfterBoarDeerButterfly,
+	ExtraPointAfterRedBlueRibbons,
 };
