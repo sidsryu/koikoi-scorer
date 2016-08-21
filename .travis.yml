@@ -6,12 +6,11 @@ os:
   - linux
 
 sudo: required
-dist: trusty
 addons:
   apt:
     sources:  
-      - ppa:ubuntu-toolchain-r/test      
-      - llvm-toolchain-trusty-3.9
+      - ubuntu-toolchain-r-test
+      - llvm-toolchain-precise
     packages:
       - clang-3.9
       - g++-6
