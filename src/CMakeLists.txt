@@ -1,9 +1,11 @@
 set(scorer_src
 	koikoi-scorer.cpp
+	card-functor.cpp
 )
 
 set(scorer_inc
 	card-define.h
+	card-functor.h
 	koikoi-scorer.h
 )
 
