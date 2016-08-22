@@ -10,7 +10,7 @@ set(cpputest_lib
     ${CMAKE_STATIC_LIBRARY_PREFIX}CppUTest${CMAKE_STATIC_LIBRARY_SUFFIX}
 )
 
-set(cpputest_new_macro ${cpputest_home}/include/CppUTest/MemoryLeakDetectorNewMacros.h)
+set(cpputest_new_macro MyOwnMemoryLeakDetectorNewMacros.h)
 set(cpputest_malloc_macro ${cpputest_home}/include/CppUTest/MemoryLeakDetectorMallocMacros.h)
 
 if (MSVC)

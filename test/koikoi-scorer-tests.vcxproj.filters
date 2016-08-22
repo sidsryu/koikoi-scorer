@@ -7,4 +7,7 @@
     <ClCompile Include="koikoiscorer_test.cpp" />
     <ClCompile Include="optionrules_test.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="MyOwnNewMacros.h" />
+  </ItemGroup>
 </Project>

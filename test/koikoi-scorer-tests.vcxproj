@@ -30,6 +30,9 @@
       <Project>{d7cc5f65-10d1-4595-b4e1-9199941b31df}</Project>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="MyOwnNewMacros.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{22C9586B-7ADC-4FE5-8AD8-254252E5A109}</ProjectGuid>
     <RootNamespace>koikoiscorertests</RootNamespace>
@@ -99,6 +102,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <TreatWarningAsError>false</TreatWarningAsError>
+      <ForcedIncludeFiles>CppUTest/MemoryLeakDetectorMallocMacros.h;MyOwnNewMacros.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
     </ClCompile>
     <Link>
       <AdditionalDependencies>winmm.lib;CppUTestd.lib;CppUTestExtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -122,6 +126,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <TreatWarningAsError>false</TreatWarningAsError>
+      <ForcedIncludeFiles>CppUTest/MemoryLeakDetectorMallocMacros.h;MyOwnNewMacros.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
