@@ -1,46 +1,25 @@
 #pragma once
 
-#include <set>
-#include <initializer_list>
+#include <memory>
 
 enum class Card;
 enum class Rule;
+class PointPile;
+class PointRules;
 
 class KoikoiScorer
 {
 public:
-    void take(Card card);
+	KoikoiScorer();
+	virtual ~KoikoiScorer();
+
+	void take(Card card);
 	void addRule(Rule option);
-	void clear();	
+	void clear();
 
-    int total() const;
-
-private:
-	int brightsScore() const;
-	int kindsScore() const;
-	int ribbonsScore() const;
-	int plainsScore() const;
-	int specialScore() const;
-	int finalScore(int total_score) const;
-
-	bool hasBoarDeerButterfly() const;
-	bool hasRedRibbons() const;
-	bool hasBlueRibbons() const;
-	bool hasViewingTheFlower() const;
-	bool hasViewingTheMoon() const;
-	bool hasCard(Card card) const;	
-	bool hasRule(Rule rule) const;
-
-	std::size_t countForKindsPoint() const;
-	std::size_t countForRibbonsPoint() const;
-	int extraPlainCount() const;
+	int total() const;
 
 private:
-	std::set<Card> cards;
-	std::set<Card> brights;
-	std::set<Card> kinds;
-	std::set<Card> ribbons;
-	std::set<Card> plains;
-
-	std::set<Rule> rules;
+	std::unique_ptr<PointPile> pile;	
+	std::unique_ptr<PointRules> rules;
 };

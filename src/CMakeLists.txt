@@ -1,14 +1,21 @@
 set(scorer_src
 	koikoi-scorer.cpp	
-	card-functor.cpp	
-	begining-hands.cpp
+	begining-hands.cpp	
+	point-counter.cpp	
+	point-pile.cpp
+	point-rules.cpp
+	card-functor.cpp
+
+	point-counter.h
+	point-pile.h
+	point-rules.h
+	card-functor.h
 )
 
 set(scorer_inc
 	koikoi-scorer.h
-	card-define.h
-	card-functor.h	
 	begining-hands.h
+	card-define.h		
 	rule-define.h
 )
 
