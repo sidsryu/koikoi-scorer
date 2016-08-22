@@ -75,6 +75,30 @@ s.addRule(Rule::ViewingTheMoon);
 auto score = s.total();
 ```
 
+시작 손패로 즉시 결정나는 점수에 대해선, `BeginingHands' 클래스를 사용할 수 있습니다.
+
+```c++
+#include "begining-hands.h"
+#include "card-define.h"
+
+BeginingHands h;
+
+h.deal(Card::PineBright);
+h.deal(Card::PineRibbon);
+h.deal(Card::PinePlain1);
+h.deal(Card::PinePlain2);
+
+h.deal(Card::CherryPlain2);
+h.deal(Card::IrisKind);
+h.deal(Card::CloverRibbon);
+h.deal(Card::PaulowniaBright);
+
+if (0 < h.score())
+{
+    // Instance wins
+}
+```
+
 ## Features
 
 점수계산이 단순한 편인 낮은점수 규칙을 사용하기로 합니다.
@@ -197,6 +221,20 @@ auto score = s.total();
 [122]: _image/122.png "Paulownia Plain"
 [123]: _image/123.png "Paulownia Plain"
 [124]: _image/124.png "Paulownia Plain"
+
+
+## Next Step v2.0
+
+다음 버전 목표입니다.
+
+- [ ] Rainy-Four-Brights
+- [ ] Monthly-Cards
+- [ ] Initial face-up cards checker
+- [ ] Variable scoring tables
+- [ ] Rain break Viewings (Rain Man or/and Lighting)
+- [ ] Willow break Viewings
+- [ ] Lightning wild card
+- [ ] Report scoring result
 
 
 ## Licensing
