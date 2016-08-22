@@ -31,8 +31,8 @@ private:
 	bool hasCard(Card card) const;	
 	bool hasRule(Rule rule) const;
 
-	size_t countForKindsPoint() const;
-	size_t countForRibbonsPoint() const;
+	std::size_t countForKindsPoint() const;
+	std::size_t countForRibbonsPoint() const;
 	int extraPlainCount() const;
 
 private:
