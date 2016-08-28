@@ -8,7 +8,7 @@ void PointRules::addRule(Rule rule)
 
 void PointRules::clear()
 {
-	rules.clear();
+	rules.clear();	
 }
 
 bool PointRules::hasRule(Rule rule) const

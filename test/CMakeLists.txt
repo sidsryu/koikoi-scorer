@@ -4,6 +4,7 @@ set(test_src
 	instancewins_test.cpp
 	koikoiscorer_test.cpp
 	optionrules_test.cpp
+	monthlycard_test.cpp
 )
 
 set(cpputest_lib

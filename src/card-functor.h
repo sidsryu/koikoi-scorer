@@ -1,6 +1,7 @@
 #pragma once
 
 enum class Card;
+enum class Month;
 
 struct IsBright
 {
@@ -22,7 +23,7 @@ struct IsPlain
 	bool operator()(const Card& card) const;
 };
 
-struct Month
+struct ToMonth
 {
-	int operator()(const Card& card) const;
+	Month operator()(const Card& card) const;
 };

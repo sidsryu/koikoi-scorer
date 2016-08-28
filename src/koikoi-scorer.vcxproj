@@ -121,6 +121,7 @@
     <ClCompile Include="begining-hands.cpp" />
     <ClCompile Include="card-functor.cpp" />
     <ClCompile Include="koikoi-scorer.cpp" />
+    <ClCompile Include="monthly-card.cpp" />
     <ClCompile Include="point-pile.cpp" />
     <ClCompile Include="point-counter.cpp" />
     <ClCompile Include="point-rules.cpp" />
@@ -130,6 +131,8 @@
     <ClInclude Include="card-define.h" />
     <ClInclude Include="card-functor.h" />
     <ClInclude Include="koikoi-scorer.h" />
+    <ClInclude Include="month-define.h" />
+    <ClInclude Include="monthly-card.h" />
     <ClInclude Include="point-pile.h" />
     <ClInclude Include="point-rules.h" />
     <ClInclude Include="rule-define.h" />

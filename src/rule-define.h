@@ -8,4 +8,6 @@ enum class Rule
 	ViewingTheMoon,
 	ExtraPointAfterBoarDeerButterfly,
 	ExtraPointAfterRedBlueRibbons,
+	RainyFourBrights,
+	MonthlyCards,
 };

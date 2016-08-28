@@ -2,6 +2,7 @@
 #include "koikoi-scorer.h"
 #include "card-define.h"
 #include "rule-define.h"
+#include "month-define.h"
 
 TEST_GROUP(OptionRulesTest)
 {
@@ -125,4 +126,16 @@ TEST(OptionRulesTest, ExtraPointAfterRedBlueRibbons)
 	s.take(Card::WillowRibbon);
 
 	CHECK_EQUAL(11, s.total());
+}
+
+TEST(OptionRulesTest, RainyFourBrights)
+{
+	s.take(Card::PineBright);
+	s.take(Card::CherryBright);
+	s.take(Card::PampasBright);
+	s.take(Card::WillowBright);
+
+	s.addRule(Rule::RainyFourBrights);
+
+	CHECK_EQUAL(7, s.total());
 }

@@ -6,7 +6,7 @@ using namespace std;
 
 void BeginingHands::deal(Card card)
 {
-	auto month = Month()(card);
+	auto month = static_cast<int>(ToMonth()(card));	
 	suit_counter[month-1]++;
 }
 

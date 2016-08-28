@@ -1,5 +1,6 @@
 #include "card-functor.h"
 #include "card-define.h"
+#include "month-define.h"
 
 bool IsBright::operator()(const Card& card) const
 {
@@ -73,56 +74,56 @@ bool IsPlain::operator()(const Card& card) const
 	return false;
 }
 
-int Month::operator()(const Card& card) const
+Month ToMonth::operator()(const Card& card) const
 {
-	if (card == Card::PineBright) return 1;
-	if (card == Card::PineRibbon) return 1;
-	if (card == Card::PinePlain1) return 1;
-	if (card == Card::PinePlain2) return 1;
-	if (card == Card::PlumKind) return 2;
-	if (card == Card::PlumRibbon) return 2;
-	if (card == Card::PlumPlain1) return 2;
-	if (card == Card::PlumPlain2) return 2;
-	if (card == Card::CherryBright) return 3;
-	if (card == Card::CherryRibbon) return 3;
-	if (card == Card::CherryPlain1) return 3;
-	if (card == Card::CherryPlain2) return 3;
-	if (card == Card::WisteriaKind) return 4;
-	if (card == Card::WisteriaRibbon) return 4;
-	if (card == Card::WisteriaPlain1) return 4;
-	if (card == Card::WisteriaPlain2) return 4;
-	if (card == Card::IrisKind) return 5;
-	if (card == Card::IrisRibbon) return 5;
-	if (card == Card::IrisPlain1) return 5;
-	if (card == Card::IrisPlain2) return 5;
-	if (card == Card::PeonyKind) return 6;
-	if (card == Card::PeonyRibbon) return 6;
-	if (card == Card::PeonyPlain1) return 6;
-	if (card == Card::PeonyPlain2) return 6;
-	if (card == Card::CloverKind) return 7;
-	if (card == Card::CloverRibbon) return 7;
-	if (card == Card::CloverPlain1) return 7;
-	if (card == Card::CloverPlain2) return 7;
-	if (card == Card::PampasBright) return 8;
-	if (card == Card::PampasKind) return 8;
-	if (card == Card::PampasPlain1) return 8;
-	if (card == Card::PampasPlain2) return 8;
-	if (card == Card::MumsKind) return 9;
-	if (card == Card::MumsRibbon) return 9;
-	if (card == Card::MumsPlain1) return 9;
-	if (card == Card::MumsPlain2) return 9;
-	if (card == Card::MapleKind) return 10;
-	if (card == Card::MapleRibbon) return 10;
-	if (card == Card::MaplePlain1) return 10;
-	if (card == Card::MaplePlain2) return 10;
-	if (card == Card::WillowBright) return 11;
-	if (card == Card::WillowKind) return 11;
-	if (card == Card::WillowRibbon) return 11;
-	if (card == Card::WillowPlain) return 11;
-	if (card == Card::PaulowniaBright) return 12;
-	if (card == Card::PaulowniaPlain1) return 12;
-	if (card == Card::PaulowniaPlain2) return 12;
-	if (card == Card::PaulowniaPlain3) return 12;
+	if (card == Card::PineBright) return Month::January;
+	if (card == Card::PineRibbon) return Month::January;
+	if (card == Card::PinePlain1) return Month::January;
+	if (card == Card::PinePlain2) return Month::January;
+	if (card == Card::PlumKind) return Month::February;
+	if (card == Card::PlumRibbon) return Month::February;
+	if (card == Card::PlumPlain1) return Month::February;
+	if (card == Card::PlumPlain2) return Month::February;
+	if (card == Card::CherryBright) return Month::March;
+	if (card == Card::CherryRibbon) return Month::March;
+	if (card == Card::CherryPlain1) return Month::March;
+	if (card == Card::CherryPlain2) return Month::March;
+	if (card == Card::WisteriaKind) return Month::April;
+	if (card == Card::WisteriaRibbon) return Month::April;
+	if (card == Card::WisteriaPlain1) return Month::April;
+	if (card == Card::WisteriaPlain2) return Month::April;
+	if (card == Card::IrisKind) return Month::May;
+	if (card == Card::IrisRibbon) return Month::May;
+	if (card == Card::IrisPlain1) return Month::May;
+	if (card == Card::IrisPlain2) return Month::May;
+	if (card == Card::PeonyKind) return Month::June;
+	if (card == Card::PeonyRibbon) return Month::June;
+	if (card == Card::PeonyPlain1) return Month::June;
+	if (card == Card::PeonyPlain2) return Month::June;
+	if (card == Card::CloverKind) return Month::July;
+	if (card == Card::CloverRibbon) return Month::July;
+	if (card == Card::CloverPlain1) return Month::July;
+	if (card == Card::CloverPlain2) return Month::July;
+	if (card == Card::PampasBright) return Month::August;
+	if (card == Card::PampasKind) return Month::August;
+	if (card == Card::PampasPlain1) return Month::August;
+	if (card == Card::PampasPlain2) return Month::August;
+	if (card == Card::MumsKind) return Month::September;
+	if (card == Card::MumsRibbon) return Month::September;
+	if (card == Card::MumsPlain1) return Month::September;
+	if (card == Card::MumsPlain2) return Month::September;
+	if (card == Card::MapleKind) return Month::October;
+	if (card == Card::MapleRibbon) return Month::October;
+	if (card == Card::MaplePlain1) return Month::October;
+	if (card == Card::MaplePlain2) return Month::October;
+	if (card == Card::WillowBright) return Month::November;
+	if (card == Card::WillowKind) return Month::November;
+	if (card == Card::WillowRibbon) return Month::November;
+	if (card == Card::WillowPlain) return Month::November;
+	if (card == Card::PaulowniaBright) return Month::December;
+	if (card == Card::PaulowniaPlain1) return Month::December;
+	if (card == Card::PaulowniaPlain2) return Month::December;
+	if (card == Card::PaulowniaPlain3) return Month::December;
 
-	return 0;
+	return Month::January;
 }

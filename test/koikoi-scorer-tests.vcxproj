@@ -22,6 +22,7 @@
     <ClCompile Include="instancewins_test.cpp" />
     <ClCompile Include="koikoiscorer_test.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="monthlycard_test.cpp" />
     <ClCompile Include="optionrules_test.cpp" />
     <ClCompile Include="scoringhands_test.cpp" />
   </ItemGroup>

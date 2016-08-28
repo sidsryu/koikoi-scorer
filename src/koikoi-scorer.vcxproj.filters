@@ -19,6 +19,9 @@
     <ClCompile Include="point-rules.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="monthly-card.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="rule-define.h">
@@ -43,6 +46,12 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="point-rules.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="month-define.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="monthly-card.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

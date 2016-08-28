@@ -16,6 +16,9 @@
     <ClCompile Include="scoringhands_test.cpp">
       <Filter>tests</Filter>
     </ClCompile>
+    <ClCompile Include="monthlycard_test.cpp">
+      <Filter>tests</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="tests">

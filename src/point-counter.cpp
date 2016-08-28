@@ -1,14 +1,16 @@
 #include "point-counter.h"
 #include "point-pile.h"
 #include "point-rules.h"
+#include "monthly-card.h"
 #include "card-define.h"
 #include "rule-define.h"
 
 using namespace std;
 
-PointCounter::PointCounter(const PointPile& pile, const PointRules& rules)
+PointCounter::PointCounter(const PointPile& pile, const PointRules& rules, const MonthlyCard& monthly_card)
 	: pile(pile)
 	, rules(rules)
+	, monthly_card(monthly_card)
 {}
 
 int PointCounter::total()
@@ -17,7 +19,8 @@ int PointCounter::total()
 	scoreKinds();
 	scoreRibbons();
 	scorePlains();
-	scoreSpecial();
+	scoreViewing();
+	scoreMonthly();
 
 	return scoreFinal(score);
 }
@@ -29,7 +32,11 @@ void PointCounter::scoreBrights()
 	if (pile.hasCard(Card::WillowBright))
 	{
 		if (5 == bright_count) score += 10;
-		if (4 == bright_count) score += 5;
+		if (4 == bright_count)
+		{
+			if (rules.hasRule(Rule::RainyFourBrights)) score += 7;
+			else score += 5;
+		}
 	}
 	else
 	{
@@ -70,7 +77,7 @@ void PointCounter::scorePlains()
 	}
 }
 
-void PointCounter::scoreSpecial()
+void PointCounter::scoreViewing()
 {	
 	if (rules.hasRule(Rule::ViewingTheFlower))
 	{
@@ -80,6 +87,14 @@ void PointCounter::scoreSpecial()
 	if (rules.hasRule(Rule::ViewingTheMoon))
 	{
 		if (pile.hasViewingTheMoon()) score += 5;
+	}
+}
+
+void PointCounter::scoreMonthly()
+{
+	if (rules.hasRule(Rule::MonthlyCards))
+	{
+		if (monthly_card.hasMonth(pile)) score += 4;
 	}
 }
 

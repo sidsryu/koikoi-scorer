@@ -2,11 +2,12 @@
 
 class PointPile;
 class PointRules;
+class MonthlyCard;
 
 class PointCounter
 {
 public:
-	PointCounter(const PointPile& pile, const PointRules& rules);
+	PointCounter(const PointPile& pile, const PointRules& rules, const MonthlyCard& monthly_card);
 
 	int total();
 
@@ -15,7 +16,8 @@ private:
 	void scoreKinds();
 	void scoreRibbons();
 	void scorePlains();
-	void scoreSpecial();
+	void scoreViewing();
+	void scoreMonthly();
 	int scoreFinal(int score) const;
 
 	int minKinds() const;
@@ -25,5 +27,7 @@ private:
 private:
 	const PointPile& pile;
 	const PointRules& rules;
+	const MonthlyCard& monthly_card;
+
 	int score { 0 };
 };
