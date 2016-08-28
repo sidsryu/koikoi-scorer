@@ -5,6 +5,7 @@
 #include "scoring-hand-calculator.h"
 #include "score-table.h"
 #include "rule-define.h"
+#include "score-report.h"
 
 using namespace std;
 
@@ -37,25 +38,29 @@ void KoikoiScorer::clear()
 	rules->clear();
 }
 
-int KoikoiScorer::total() const
+ScoreReport KoikoiScorer::report() const
 {
 	// check scoring hand
 	ScoringHandCalculator s(*pile, *rules, *monthly_card);
 	s.calculate();
 
 	// scoring
-	int score = 0;
+	ScoreReport report;
 	ScoreTable table(*pile, *rules);
 
-	s.each([&score, &table](ScoringHand hand) {
-		score += table.score(hand);
+	s.each([&report, &table](ScoringHand hand) {
+		auto score = table.score(hand);
+
+		report.scores.insert({ hand, score });
+		report.score += score;
 	});
 
 	// final scoring modify
 	if (rules->hasRule(Rule::SevenOrMoreDoubled))
 	{
-		if (7 <= score) score *= 2;
+		if (7 <= report.score) report.multiple = 2;
 	}
 
-	return score;
+	report.total = report.score * report.multiple;
+	return report;
 }

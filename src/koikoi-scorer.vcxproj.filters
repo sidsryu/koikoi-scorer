@@ -63,6 +63,9 @@
     <ClInclude Include="score-table.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="score-report.h">
+      <Filter>include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="include">

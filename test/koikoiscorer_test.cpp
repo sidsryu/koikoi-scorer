@@ -1,10 +1,16 @@
 #include "CppUTest/TestHarness.h"
 #include "koikoi-scorer.h"
 #include "card-define.h"
+#include "score-report.h"
 
 TEST_GROUP(KoikoiScorerTest)
 {
 	KoikoiScorer s;
+
+	int total()
+	{
+		return s.report().total;
+	}
 };
 
 TEST(KoikoiScorerTest, Clear)
@@ -60,7 +66,7 @@ TEST(KoikoiScorerTest, Clear)
 
 	s.clear();
 
-	CHECK_EQUAL(0, s.total());
+	CHECK_EQUAL(0, total());
 }
 
 TEST(KoikoiScorerTest, TakeDuplicatedCard)
@@ -78,5 +84,5 @@ TEST(KoikoiScorerTest, TakeDuplicatedCard)
 		s.take(Card::IrisPlain1);
 	}
 
-	CHECK_EQUAL(0, s.total());
+	CHECK_EQUAL(0, total());
 }

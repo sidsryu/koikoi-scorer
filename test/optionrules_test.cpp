@@ -3,6 +3,7 @@
 #include "card-define.h"
 #include "rule-define.h"
 #include "month-define.h"
+#include "score-report.h"
 
 TEST_GROUP(OptionRulesTest)
 {
@@ -18,6 +19,11 @@ TEST_GROUP(OptionRulesTest)
 		s.addRule(Rule::ViewingTheMoon);
 		s.addRule(Rule::RainBreakViewings);
 	}
+
+	int total()
+	{
+		return s.report().total;
+	}
 };
 
 TEST(OptionRulesTest, ScoreDoubledWhenSevenOrMorePoints)
@@ -30,7 +36,7 @@ TEST(OptionRulesTest, ScoreDoubledWhenSevenOrMorePoints)
 
 	s.addRule(Rule::SevenOrMoreDoubled);
 
-	CHECK_EQUAL(20, s.total());
+	CHECK_EQUAL(20, total());
 }
 
 TEST(OptionRulesTest, SakeCupToCountKindAndPlain)
@@ -52,11 +58,11 @@ TEST(OptionRulesTest, SakeCupToCountKindAndPlain)
 
 	s.take(Card::MumsKind);
 
-	CHECK_EQUAL(1, s.total());
+	CHECK_EQUAL(1, total());
 
 	s.addRule(Rule::SakeCupBothKindAndPlain);
 
-	CHECK_EQUAL(2, s.total());
+	CHECK_EQUAL(2, total());
 }
 
 TEST(OptionRulesTest, ViewingTheFlower)
@@ -64,11 +70,11 @@ TEST(OptionRulesTest, ViewingTheFlower)
 	s.take(Card::CherryBright);
 	s.take(Card::MumsKind);
 
-	CHECK_EQUAL(0, s.total());
+	CHECK_EQUAL(0, total());
 
 	s.addRule(Rule::ViewingTheFlower);
 
-	CHECK_EQUAL(5, s.total());
+	CHECK_EQUAL(5, total());
 }
 
 TEST(OptionRulesTest, ViewingTheMoon)
@@ -76,11 +82,11 @@ TEST(OptionRulesTest, ViewingTheMoon)
 	s.take(Card::PampasBright);
 	s.take(Card::MumsKind);
 
-	CHECK_EQUAL(0, s.total());
+	CHECK_EQUAL(0, total());
 
 	s.addRule(Rule::ViewingTheMoon);
 
-	CHECK_EQUAL(5, s.total());
+	CHECK_EQUAL(5, total());
 }
 
 TEST(OptionRulesTest, BrightViewingCombo)
@@ -93,15 +99,15 @@ TEST(OptionRulesTest, BrightViewingCombo)
 
 	s.take(Card::MumsKind);
 
-	CHECK_EQUAL(10, s.total());
+	CHECK_EQUAL(10, total());
 
 	s.addRule(Rule::ViewingTheFlower);
 	
-	CHECK_EQUAL(15, s.total());
+	CHECK_EQUAL(15, total());
 
 	s.addRule(Rule::ViewingTheMoon);
 
-	CHECK_EQUAL(20, s.total());
+	CHECK_EQUAL(20, total());
 }
 
 TEST(OptionRulesTest, ExtraPointAfterBoarDeerButterfly)
@@ -114,7 +120,7 @@ TEST(OptionRulesTest, ExtraPointAfterBoarDeerButterfly)
 
 	s.addRule(Rule::ExtraPointAfterBoarDeerButterfly);
 
-	CHECK_EQUAL(6, s.total());
+	CHECK_EQUAL(6, total());
 }
 
 TEST(OptionRulesTest, ExtraPointAfterRedBlueRibbons)
@@ -128,15 +134,15 @@ TEST(OptionRulesTest, ExtraPointAfterRedBlueRibbons)
 
 	s.addRule(Rule::ExtraPointAfterRedBlueRibbons);
 
-	CHECK_EQUAL(7, s.total());
+	CHECK_EQUAL(7, total());
 
 	s.take(Card::MapleRibbon);
 
-	CHECK_EQUAL(10, s.total());
+	CHECK_EQUAL(10, total());
 
 	s.take(Card::WillowRibbon);
 
-	CHECK_EQUAL(11, s.total());
+	CHECK_EQUAL(11, total());
 }
 
 TEST(OptionRulesTest, RainyFourBrights)
@@ -148,7 +154,7 @@ TEST(OptionRulesTest, RainyFourBrights)
 
 	s.addRule(Rule::RainyFourBrights);
 
-	CHECK_EQUAL(7, s.total());
+	CHECK_EQUAL(7, total());
 }
 
 TEST(OptionRulesTest, SixPointsThreeBrights)
@@ -159,7 +165,7 @@ TEST(OptionRulesTest, SixPointsThreeBrights)
 
 	s.addRule(Rule::SixPointsThreeBrights);
 
-	CHECK_EQUAL(6, s.total());
+	CHECK_EQUAL(6, total());
 }
 
 TEST(OptionRulesTest, RainyViewingRainMan)
@@ -167,7 +173,7 @@ TEST(OptionRulesTest, RainyViewingRainMan)
 	setRainyViewing();
 	s.take(Card::WillowBright);
 
-	CHECK_EQUAL(0, s.total());
+	CHECK_EQUAL(0, total());
 }
 
 TEST(OptionRulesTest, RainyViewingLightning)
@@ -175,7 +181,7 @@ TEST(OptionRulesTest, RainyViewingLightning)
 	setRainyViewing();
 	s.take(Card::WillowPlain);
 
-	CHECK_EQUAL(0, s.total());
+	CHECK_EQUAL(0, total());
 }
 
 TEST(OptionRulesTest, RainyViewingWillow)
@@ -185,9 +191,9 @@ TEST(OptionRulesTest, RainyViewingWillow)
 	s.take(Card::WillowKind);
 	s.take(Card::WillowRibbon);
 
-	CHECK_EQUAL(10, s.total());
+	CHECK_EQUAL(10, total());
 
 	s.addRule(Rule::WillowIsRain);
 
-	CHECK_EQUAL(0, s.total());
+	CHECK_EQUAL(0, total());
 }

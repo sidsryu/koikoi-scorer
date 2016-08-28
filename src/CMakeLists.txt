@@ -23,6 +23,7 @@ set(scorer_inc
 	rule-define.h
 	month-define.h
 	scoring-define.h
+	score-report.h
 )
 
 add_library(koikoi-scorer STATIC ${scorer_src} ${scorer_inc})

@@ -8,6 +8,7 @@ enum class Month;
 class PointPile;
 class PointRules;
 class MonthlyCard;
+struct ScoreReport;
 
 class KoikoiScorer
 {
@@ -20,7 +21,7 @@ public:
 	void setMonth(Month month);
 	void clear();
 
-	int total() const;
+	ScoreReport report() const;
 
 private:
 	std::unique_ptr<PointPile> pile;

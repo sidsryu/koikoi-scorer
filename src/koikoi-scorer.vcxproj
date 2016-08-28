@@ -137,6 +137,7 @@
     <ClInclude Include="point-pile.h" />
     <ClInclude Include="point-rules.h" />
     <ClInclude Include="rule-define.h" />
+    <ClInclude Include="score-report.h" />
     <ClInclude Include="score-table.h" />
     <ClInclude Include="scoring-define.h" />
     <ClInclude Include="scoring-hand-calculator.h" />

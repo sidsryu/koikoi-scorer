@@ -13,6 +13,8 @@ enum class ScoringHand
 	Kinds,
 	Ribbons,
 	Plains,
+	
+	SevenOrMoreDoubled,
 
 	RainyFourBrights,
 	MonthlyCards,

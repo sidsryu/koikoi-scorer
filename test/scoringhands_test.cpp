@@ -1,10 +1,16 @@
 #include "CppUTest/TestHarness.h"
 #include "koikoi-scorer.h"
 #include "card-define.h"
+#include "score-report.h"
 
 TEST_GROUP(ScoringHandsTest)
 {
 	KoikoiScorer s;
+
+	int total()
+	{
+		return s.report().total;
+	}
 };
 
 TEST(ScoringHandsTest, FiveBrights)
@@ -15,7 +21,7 @@ TEST(ScoringHandsTest, FiveBrights)
 	s.take(Card::PaulowniaBright);
 	s.take(Card::WillowBright);
 
-	CHECK_EQUAL(10, s.total());
+	CHECK_EQUAL(10, total());
 }
 
 TEST(ScoringHandsTest, FourBrights)
@@ -25,7 +31,7 @@ TEST(ScoringHandsTest, FourBrights)
 	s.take(Card::PampasBright);
 	s.take(Card::PaulowniaBright);
 
-	CHECK_EQUAL(8, s.total());
+	CHECK_EQUAL(8, total());
 }
 
 TEST(ScoringHandsTest, RainyFourBrights)
@@ -35,7 +41,7 @@ TEST(ScoringHandsTest, RainyFourBrights)
 	s.take(Card::PampasBright);	
 	s.take(Card::WillowBright);
 
-	CHECK_EQUAL(5, s.total());
+	CHECK_EQUAL(5, total());
 }
 
 TEST(ScoringHandsTest, ThreeBrights)
@@ -44,28 +50,28 @@ TEST(ScoringHandsTest, ThreeBrights)
 	s.take(Card::CherryBright);
 	s.take(Card::PampasBright);
 
-	CHECK_EQUAL(5, s.total());
+	CHECK_EQUAL(5, total());
 
 	s.clear();
 	s.take(Card::PineBright);
 	s.take(Card::CherryBright);	
 	s.take(Card::PaulowniaBright);
 
-	CHECK_EQUAL(5, s.total());
+	CHECK_EQUAL(5, total());
 
 	s.clear();
 	s.take(Card::PineBright);
 	s.take(Card::PampasBright);
 	s.take(Card::PaulowniaBright);
 
-	CHECK_EQUAL(5, s.total());
+	CHECK_EQUAL(5, total());
 
 	s.clear();
 	s.take(Card::CherryBright);
 	s.take(Card::PampasBright);
 	s.take(Card::PaulowniaBright);
 
-	CHECK_EQUAL(5, s.total());
+	CHECK_EQUAL(5, total());
 }
 
 TEST(ScoringHandsTest, RainyThreeBrights)
@@ -74,7 +80,7 @@ TEST(ScoringHandsTest, RainyThreeBrights)
 	s.take(Card::CherryBright);	
 	s.take(Card::WillowBright);
 
-	CHECK_EQUAL(0, s.total());
+	CHECK_EQUAL(0, total());
 }
 
 TEST(ScoringHandsTest, BoarDeerButterfly)
@@ -83,7 +89,7 @@ TEST(ScoringHandsTest, BoarDeerButterfly)
 	s.take(Card::MapleKind);
 	s.take(Card::PeonyKind);
 
-	CHECK_EQUAL(5, s.total());
+	CHECK_EQUAL(5, total());
 }
 
 TEST(ScoringHandsTest, RedRibbons)
@@ -92,7 +98,7 @@ TEST(ScoringHandsTest, RedRibbons)
 	s.take(Card::PlumRibbon);
 	s.take(Card::CherryRibbon);
 
-	CHECK_EQUAL(5, s.total());
+	CHECK_EQUAL(5, total());
 }
 
 TEST(ScoringHandsTest, BlueRibbons)
@@ -101,7 +107,7 @@ TEST(ScoringHandsTest, BlueRibbons)
 	s.take(Card::PeonyRibbon);
 	s.take(Card::MapleRibbon);
 
-	CHECK_EQUAL(5, s.total());
+	CHECK_EQUAL(5, total());
 }
 
 TEST(ScoringHandsTest, Kinds)
@@ -111,11 +117,11 @@ TEST(ScoringHandsTest, Kinds)
 	s.take(Card::PampasKind);
 	s.take(Card::IrisKind);
 
-	CHECK_EQUAL(0, s.total());
+	CHECK_EQUAL(0, total());
 
 	s.take(Card::MumsKind);
 
-	CHECK_EQUAL(1, s.total());
+	CHECK_EQUAL(1, total());
 }
 
 TEST(ScoringHandsTest, AllKindCombo)
@@ -130,7 +136,7 @@ TEST(ScoringHandsTest, AllKindCombo)
 	s.take(Card::MapleKind);
 	s.take(Card::WillowKind);
 
-	CHECK_EQUAL(10, s.total());
+	CHECK_EQUAL(10, total());
 }
 
 TEST(ScoringHandsTest, Ribbons)
@@ -140,11 +146,11 @@ TEST(ScoringHandsTest, Ribbons)
 	s.take(Card::MumsRibbon);
 	s.take(Card::PeonyRibbon);
 
-	CHECK_EQUAL(0, s.total());
+	CHECK_EQUAL(0, total());
 
 	s.take(Card::CloverRibbon);
 
-	CHECK_EQUAL(1, s.total());
+	CHECK_EQUAL(1, total());
 }
 
 TEST(ScoringHandsTest, AllRibbonCombo)
@@ -160,7 +166,7 @@ TEST(ScoringHandsTest, AllRibbonCombo)
 	s.take(Card::MapleRibbon);
 	s.take(Card::WillowRibbon);
 
-	CHECK_EQUAL(16, s.total());
+	CHECK_EQUAL(16, total());
 }
 
 TEST(ScoringHandsTest, Plains)
@@ -175,11 +181,11 @@ TEST(ScoringHandsTest, Plains)
 	s.take(Card::WisteriaPlain2);
 	s.take(Card::IrisPlain1);
 
-	CHECK_EQUAL(0, s.total());
+	CHECK_EQUAL(0, total());
 
 	s.take(Card::IrisPlain2);
 
-	CHECK_EQUAL(1, s.total());
+	CHECK_EQUAL(1, total());
 
 	s.take(Card::PeonyPlain1);
 	s.take(Card::PeonyPlain2);
@@ -196,5 +202,5 @@ TEST(ScoringHandsTest, Plains)
 	s.take(Card::PaulowniaPlain2);
 	s.take(Card::PaulowniaPlain3);
 
-	CHECK_EQUAL(15, s.total());
+	CHECK_EQUAL(15, total());
 }

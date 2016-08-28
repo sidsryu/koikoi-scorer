@@ -232,7 +232,7 @@ if (0 < h.score())
 - [x] Monthly-Cards
 - [x] Rain break Viewings (Rain Man or/and Lighting)
 - [x] Willow is Rain (willow break viewing)
-- [ ] Report scoring result
+- [x] Report scoring result
 
 Goal of v3.0
 
