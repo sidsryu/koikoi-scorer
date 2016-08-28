@@ -81,7 +81,7 @@ ScoreReport r = s.report();
 int total = r.total;
 ```
 
-시작 손패로 즉시 결정나는 점수에 대해선, `BeginingHands' 클래스를 사용할 수 있습니다.
+시작 손패로 즉시 결정나는 점수에 대해선, `BeginingHands` 클래스를 사용할 수 있습니다.
 
 ```c++
 #include "begining-hands.h"
