@@ -6,8 +6,11 @@ enum class Rule
 	SakeCupBothKindAndPlain,
 	ViewingTheFlower,
 	ViewingTheMoon,
+	RainBreakViewings,
+	WillowIsRain,
 	ExtraPointAfterBoarDeerButterfly,
 	ExtraPointAfterRedBlueRibbons,
 	RainyFourBrights,
+	SixPointsThreeBrights,
 	MonthlyCards,
 };

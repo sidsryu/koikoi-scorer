@@ -227,15 +227,18 @@ if (0 < h.score())
 
 다음 버전 목표입니다.
 
-- [ ] Rainy-Four-Brights
-- [ ] Monthly-Cards
-- [ ] Initial face-up cards checker
-- [ ] Variable scoring tables
-- [ ] Rain break Viewings (Rain Man or/and Lighting)
-- [ ] Willow break Viewings
-- [ ] Lightning wild card
+- [x] Rainy-Four-Brights
+- [x] Three-Brights is 6 points
+- [x] Monthly-Cards
+- [x] Rain break Viewings (Rain Man or/and Lighting)
+- [x] Willow is Rain (willow break viewing)
 - [ ] Report scoring result
 
+Goal of v3.0
+
+- Initial face-up cards checker
+- Variable scoring tables
+- Lightning wild card
 
 ## Licensing
 

@@ -28,6 +28,12 @@ int PointCounter::total()
 void PointCounter::scoreBrights()
 {
 	auto bright_count = pile.brightCount();
+	
+	auto three_brights_point = 5;
+	if (rules.hasRule(Rule::SixPointsThreeBrights))
+	{
+		three_brights_point = 6;
+	}
 
 	if (pile.hasCard(Card::WillowBright))
 	{
@@ -35,13 +41,13 @@ void PointCounter::scoreBrights()
 		if (4 == bright_count)
 		{
 			if (rules.hasRule(Rule::RainyFourBrights)) score += 7;
-			else score += 5;
+			else score += three_brights_point;
 		}
 	}
 	else
 	{
 		if (4 == bright_count) score += 8;
-		if (3 == bright_count) score += 5;
+		if (3 == bright_count) score += three_brights_point;
 	}
 }
 
@@ -79,6 +85,18 @@ void PointCounter::scorePlains()
 
 void PointCounter::scoreViewing()
 {	
+	if (rules.hasRule(Rule::RainBreakViewings))
+	{
+		if (pile.hasCard(Card::WillowBright)) return;
+		if (pile.hasCard(Card::WillowPlain)) return;
+
+		if (rules.hasRule(Rule::WillowIsRain))
+		{
+			if (pile.hasCard(Card::WillowKind)) return;
+			if (pile.hasCard(Card::WillowRibbon)) return;
+		}
+	}
+
 	if (rules.hasRule(Rule::ViewingTheFlower))
 	{
 		if (pile.hasViewingTheFlower()) score += 5;

@@ -7,6 +7,17 @@
 TEST_GROUP(OptionRulesTest)
 {
 	KoikoiScorer s;
+
+	void setRainyViewing()
+	{
+		s.take(Card::CherryBright);
+		s.take(Card::PampasBright);
+		s.take(Card::MumsKind);
+
+		s.addRule(Rule::ViewingTheFlower);
+		s.addRule(Rule::ViewingTheMoon);
+		s.addRule(Rule::RainBreakViewings);
+	}
 };
 
 TEST(OptionRulesTest, ScoreDoubledWhenSevenOrMorePoints)
@@ -138,4 +149,45 @@ TEST(OptionRulesTest, RainyFourBrights)
 	s.addRule(Rule::RainyFourBrights);
 
 	CHECK_EQUAL(7, s.total());
+}
+
+TEST(OptionRulesTest, SixPointsThreeBrights)
+{
+	s.take(Card::PineBright);
+	s.take(Card::CherryBright);
+	s.take(Card::PampasBright);	
+
+	s.addRule(Rule::SixPointsThreeBrights);
+
+	CHECK_EQUAL(6, s.total());
+}
+
+TEST(OptionRulesTest, RainyViewingRainMan)
+{
+	setRainyViewing();
+	s.take(Card::WillowBright);
+
+	CHECK_EQUAL(0, s.total());
+}
+
+TEST(OptionRulesTest, RainyViewingLightning)
+{
+	setRainyViewing();
+	s.take(Card::WillowPlain);
+
+	CHECK_EQUAL(0, s.total());
+}
+
+TEST(OptionRulesTest, RainyViewingWillow)
+{
+	setRainyViewing();
+
+	s.take(Card::WillowKind);
+	s.take(Card::WillowRibbon);
+
+	CHECK_EQUAL(10, s.total());
+
+	s.addRule(Rule::WillowIsRain);
+
+	CHECK_EQUAL(0, s.total());
 }
