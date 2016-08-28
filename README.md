@@ -1,4 +1,4 @@
-# koikoi-scorer
+# koikoi-scorer v2.0
 
 [![Build Status](https://travis-ci.org/sidsryu/koikoi-scorer.svg?branch=master)][travis]
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)][license]
@@ -40,6 +40,8 @@ make
 #include "koikoi-scorer.h"
 #include "card-define.h"
 
+using namespace koikoi;
+
 KoikoiScorer player1;
 KoikoiScorer player2;
 
@@ -53,7 +55,8 @@ player2.take(Card::PampasPlain2);
 
 ...
 
-auto score = palyer1.total();
+ScoreReport r = player1.report();
+int total = t.total;
 
 ```
 
@@ -62,6 +65,8 @@ auto score = palyer1.total();
 ```c++
 #include "koikoi-scorer.h"
 #include "rule-define.h"
+
+using namespace koikoi;
 
 KoikoiScorer s;
 
@@ -72,7 +77,8 @@ s.addRule(Rule::ViewingTheMoon);
 
 ...
 
-auto score = s.total();
+ScoreReport r = s.report();
+int total = r.total;
 ```
 
 시작 손패로 즉시 결정나는 점수에 대해선, `BeginingHands' 클래스를 사용할 수 있습니다.
@@ -80,6 +86,8 @@ auto score = s.total();
 ```c++
 #include "begining-hands.h"
 #include "card-define.h"
+
+using namespace koikoi;
 
 BeginingHands h;
 
@@ -101,14 +109,12 @@ if (0 < h.score())
 
 ## Features
 
-점수계산이 단순한 편인 낮은점수 규칙을 사용하기로 합니다.
-낮은점수 규칙은 5광을 10점으로 계산합니다.
-공식 설명서가 있는 닌텐도 규칙을 쓰기로 했습니다.
-
-현재 목표로 잡고 있는 기본 규칙은 아래와 같습니다;
+기본 규칙으로 닌텐도 규칙을 사용합니다.
+닌텐도 규칙은 일반적인 낮은 점수 규칙으로, 5광 10점을 사용하고 있습니다.
 
 * [Nintendo rules][nintendo]
 
+닌텐도 이외의 규칙은 선택 규칙으로 추가되었습니다.
 지원하는 선택 규칙은 다음과 같습니다;
 
 * 7 or more points in total, score doubled.
@@ -117,10 +123,23 @@ if (0 < h.score())
 * 1 extra point for each additional kind after Boar-Deer-Butterfly
 * Viewing-the-Flower
 * Viewing-the-Moon
+* Rainy-Four-Brights
+* Three-Brights is 6 points
+* Monthly-Cards
+* Rain break Viewings (Rain Man or/and Lighting)
+* Willow is Rain (willow break viewing)
+
+Goal of v3.0
+
+* [ ] Initial face-up cards checker
+* [ ] Variable scoring tables
+* [ ] Lightning wild card
+* [ ] The sake cup to count a kind and **two** plains at the same time
 
 [nintendo]: https://www.nintendo.co.jp/n09/hana-kabu_games/
 
-## Koi-Koi Scoring Rules
+
+## Default Koi-Koi Scoring Rules
 
 ### Instance Wins
 
@@ -135,7 +154,7 @@ if (0 < h.score())
     ![Paulownia Plain][124]![Paulownia Plain][122]
     ![Pampas Bright][81]![Pampas Plain][84]
 
-### Scoring Hands
+### Scoring Hands 
 
 * Five-Brights - 10 pts.
 
@@ -222,23 +241,6 @@ if (0 < h.score())
 [123]: _image/123.png "Paulownia Plain"
 [124]: _image/124.png "Paulownia Plain"
 
-
-## Next Step v2.0
-
-다음 버전 목표입니다.
-
-- [x] Rainy-Four-Brights
-- [x] Three-Brights is 6 points
-- [x] Monthly-Cards
-- [x] Rain break Viewings (Rain Man or/and Lighting)
-- [x] Willow is Rain (willow break viewing)
-- [x] Report scoring result
-
-Goal of v3.0
-
-- Initial face-up cards checker
-- Variable scoring tables
-- Lightning wild card
 
 ## Licensing
 
