@@ -3,6 +3,7 @@
 #include <set>
 #include <functional>
 
+namespace koikoi {
 enum class ScoringHand;
 class PointPile;
 class PointRules;
@@ -21,7 +22,7 @@ private:
 	void calculateThreeBrights();
 	void calculateViewingTheFlower();
 	void calculateViewingTheMoon();
-	void calculateBoarDeerButterfly(); 
+	void calculateBoarDeerButterfly();
 	void calculateRedRibbons();
 	void calculateBlueRibbons();
 	void calculateRainyFourBrights();
@@ -36,6 +37,7 @@ private:
 	const PointPile& pile;
 	const PointRules& rules;
 	const MonthlyCard& monthly_card;
-	
+
 	std::set<ScoringHand> hands;
 };
+}

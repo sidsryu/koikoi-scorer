@@ -2,6 +2,7 @@
 
 #include <memory>
 
+namespace koikoi {
 enum class Card;
 enum class Rule;
 enum class Month;
@@ -28,3 +29,4 @@ private:
 	std::unique_ptr<PointRules> rules;
 	std::unique_ptr<MonthlyCard> monthly_card;
 };
+}

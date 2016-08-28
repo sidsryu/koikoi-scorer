@@ -5,6 +5,8 @@
 #include "month-define.h"
 #include "score-report.h"
 
+using namespace koikoi;
+
 TEST_GROUP(OptionRulesTest)
 {
 	KoikoiScorer s;

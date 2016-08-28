@@ -1,5 +1,6 @@
 #pragma once
 
+namespace koikoi {
 enum class Card
 {
 	PineBright = 11,
@@ -51,3 +52,4 @@ enum class Card
 	PaulowniaPlain2 = 123,
 	PaulowniaPlain3 = 134,
 };
+}

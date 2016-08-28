@@ -6,6 +6,7 @@
 #include "rule-define.h"
 #include "scoring-define.h"
 
+namespace koikoi {
 ScoringHandCalculator::ScoringHandCalculator(const PointPile& pile, const PointRules& rules, const MonthlyCard& monthly_card)
 	: pile(pile)
 	, rules(rules)
@@ -168,7 +169,7 @@ void ScoringHandCalculator::calculateKinds()
 			min_count = 4;
 		}
 	}
-	
+
 	if (min_count <= pile.kindCount())
 	{
 		hands.insert(ScoringHand::Kinds);
@@ -203,9 +204,10 @@ void ScoringHandCalculator::calculatePlains()
 			extra_plain = 1;
 		}
 	}
-	
+
 	if (10 <= pile.plainCount() + extra_plain)
 	{
 		hands.insert(ScoringHand::Plains);
 	}
+}
 }

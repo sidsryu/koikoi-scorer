@@ -9,6 +9,7 @@
 
 using namespace std;
 
+namespace koikoi {
 KoikoiScorer::KoikoiScorer()
 	: pile(make_unique<PointPile>())
 	, rules(make_unique<PointRules>())
@@ -63,4 +64,5 @@ ScoreReport KoikoiScorer::report() const
 
 	report.total = report.score * report.multiple;
 	return report;
+}
 }

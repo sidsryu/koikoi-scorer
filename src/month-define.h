@@ -1,5 +1,6 @@
 #pragma once
 
+namespace koikoi {
 enum class Month
 {
 	January = 1,
@@ -15,3 +16,4 @@ enum class Month
 	November,
 	December,
 };
+}

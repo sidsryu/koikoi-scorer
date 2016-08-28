@@ -2,6 +2,7 @@
 #include "card-define.h"
 #include "card-functor.h"
 
+namespace koikoi {
 void PointPile::take(Card card)
 {
 	cards.insert(card);
@@ -44,7 +45,7 @@ int PointPile::plainCount() const
 bool PointPile::hasCard(Card card) const
 {
 	auto it = cards.find(card);
-	return it != cards.end();	
+	return it != cards.end();
 }
 
 bool PointPile::hasBoarDeerButterfly() const
@@ -73,4 +74,5 @@ bool PointPile::hasViewingTheFlower() const
 bool PointPile::hasViewingTheMoon() const
 {
 	return hasCard(Card::PampasBright) && hasCard(Card::MumsKind);
+}
 }

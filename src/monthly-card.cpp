@@ -3,7 +3,8 @@
 #include "point-pile.h"
 #include "card-define.h"
 
-MonthlyCard::MonthlyCard() 
+namespace koikoi {
+MonthlyCard::MonthlyCard()
 	: month(Month::January)
 {}
 
@@ -126,4 +127,5 @@ bool MonthlyCard::hasDecember(const PointPile& pile) const
 		&& pile.hasCard(Card::PaulowniaPlain1)
 		&& pile.hasCard(Card::PaulowniaPlain2)
 		&& pile.hasCard(Card::PaulowniaPlain3);
+}
 }

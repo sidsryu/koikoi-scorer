@@ -2,6 +2,7 @@
 
 #include <map>
 
+namespace koikoi {
 enum class ScoringHand;
 class PointPile;
 class PointRules;
@@ -26,3 +27,4 @@ private:
 
 	std::map<ScoringHand, int> scores;
 };
+}

@@ -1,5 +1,6 @@
 #pragma once
 
+namespace koikoi {
 enum class Rule
 {
 	SevenOrMoreDoubled,
@@ -14,3 +15,4 @@ enum class Rule
 	SixPointsThreeBrights,
 	MonthlyCards,
 };
+}

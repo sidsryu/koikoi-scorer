@@ -1,5 +1,6 @@
 #pragma once
 
+namespace koikoi {
 enum class Month;
 class PointPile;
 
@@ -28,3 +29,4 @@ private:
 private:
 	Month month;
 };
+}

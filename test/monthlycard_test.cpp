@@ -5,7 +5,7 @@
 #include "month-define.h"
 #include "score-report.h"
 
-using namespace std;
+using namespace koikoi;
 
 TEST_GROUP(MontylyCardTest)
 {

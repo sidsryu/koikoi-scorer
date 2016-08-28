@@ -1,5 +1,6 @@
 #pragma once
 
+namespace koikoi {
 enum class ScoringHand
 {
 	FiveBrights,
@@ -13,9 +14,10 @@ enum class ScoringHand
 	Kinds,
 	Ribbons,
 	Plains,
-	
+
 	SevenOrMoreDoubled,
 
 	RainyFourBrights,
 	MonthlyCards,
 };
+}

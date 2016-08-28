@@ -5,6 +5,7 @@
 #include "rule-define.h"
 #include "card-define.h"
 
+namespace koikoi {
 ScoreTable::ScoreTable(const PointPile& pile, const PointRules& rules)
 	: pile(pile)
 	, rules(rules)
@@ -73,7 +74,7 @@ int ScoreTable::scoreRibbons() const
 		if (pile.hasBlueRibbons()) return count - 3;
 		if (pile.hasRedRibbons()) return count - 3;
 	}
-	
+
 	return count - 4;
 }
 
@@ -87,4 +88,5 @@ int ScoreTable::scorePlains() const
 	}
 
 	return count - 9;
+}
 }

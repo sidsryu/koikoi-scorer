@@ -4,10 +4,11 @@
 
 using namespace std;
 
+namespace koikoi {
 void BeginingHands::deal(Card card)
 {
-	auto month = static_cast<int>(ToMonth()(card));	
-	suit_counter[month-1]++;
+	auto month = static_cast<int>(ToMonth()(card));
+	suit_counter[month - 1]++;
 }
 
 void BeginingHands::clear()
@@ -29,4 +30,5 @@ int BeginingHands::score() const
 	if (4 <= pair_count) return 6;
 
 	return 0;
+}
 }

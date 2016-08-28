@@ -3,6 +3,8 @@
 #include "card-define.h"
 #include "score-report.h"
 
+using namespace koikoi;
+
 TEST_GROUP(ScoringHandsTest)
 {
 	KoikoiScorer s;

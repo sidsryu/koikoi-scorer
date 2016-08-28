@@ -2,6 +2,7 @@
 #include "card-define.h"
 #include "month-define.h"
 
+namespace koikoi {
 bool IsBright::operator()(const Card& card) const
 {
 	if (card == Card::PineBright) return true;
@@ -126,4 +127,5 @@ Month ToMonth::operator()(const Card& card) const
 	if (card == Card::PaulowniaPlain3) return Month::December;
 
 	return Month::January;
+}
 }

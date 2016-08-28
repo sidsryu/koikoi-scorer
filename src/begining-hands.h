@@ -2,6 +2,7 @@
 
 #include <array>
 
+namespace koikoi {
 enum class Card;
 
 class BeginingHands
@@ -14,3 +15,4 @@ public:
 private:
 	std::array<int, 12> suit_counter {};
 };
+}

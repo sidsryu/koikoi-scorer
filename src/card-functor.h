@@ -1,5 +1,6 @@
 #pragma once
 
+namespace koikoi {
 enum class Card;
 enum class Month;
 
@@ -27,3 +28,4 @@ struct ToMonth
 {
 	Month operator()(const Card& card) const;
 };
+}

@@ -2,6 +2,8 @@
 #include "begining-hands.h"
 #include "card-define.h"
 
+using namespace koikoi;
+
 TEST_GROUP(InstanceWinsTest)
 {
 	const int WINNING_POINTS { 6 };

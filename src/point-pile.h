@@ -2,6 +2,7 @@
 
 #include <set>
 
+namespace koikoi {
 enum class Card;
 
 class PointPile
@@ -9,7 +10,7 @@ class PointPile
 public:
 	void take(Card card);
 	void clear();
-		
+
 	int brightCount() const;
 	int kindCount() const;
 	int ribbonCount() const;
@@ -29,3 +30,4 @@ private:
 	std::set<Card> ribbons;
 	std::set<Card> plains;
 };
+}
