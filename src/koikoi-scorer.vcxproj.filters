@@ -10,9 +10,6 @@
     <ClCompile Include="card-functor.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="point-counter.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="point-pile.cpp">
       <Filter>src</Filter>
     </ClCompile>
@@ -20,6 +17,12 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="monthly-card.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="scoring-hand-calculator.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="score-table.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
@@ -39,9 +42,6 @@
     <ClInclude Include="card-functor.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="point-counter.h">
-      <Filter>src</Filter>
-    </ClInclude>
     <ClInclude Include="point-pile.h">
       <Filter>src</Filter>
     </ClInclude>
@@ -52,6 +52,15 @@
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="monthly-card.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="scoring-define.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="scoring-hand-calculator.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="score-table.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,17 +1,19 @@
 set(scorer_src
 	koikoi-scorer.cpp	
 	begining-hands.cpp	
-	point-counter.cpp	
 	point-pile.cpp
 	point-rules.cpp
 	card-functor.cpp
 	monthly-card.cpp
-
-	point-counter.h
+	score-table.cpp
+	scoring-hand-calculator.cpp
+		
 	point-pile.h
 	point-rules.h
 	card-functor.h
 	monthly-card.h
+	score-table.h
+	scoring-hand-calculator.h
 )
 
 set(scorer_inc
@@ -20,6 +22,7 @@ set(scorer_inc
 	card-define.h		
 	rule-define.h
 	month-define.h
+	scoring-define.h
 )
 
 add_library(koikoi-scorer STATIC ${scorer_src} ${scorer_inc})
