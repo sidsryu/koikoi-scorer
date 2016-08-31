@@ -88,14 +88,14 @@
     <IntDir>$(SolutionDir)obj\$(ProjectName)\$(Configuration)\</IntDir>
     <OutDir>$(SolutionDir)bin\</OutDir>
     <TargetName>$(ProjectName)-d</TargetName>
-    <IncludePath>F:\Dev\github\koikoi-scorer\lib\cpputest\include;F:\Dev\github\koikoi-scorer\src;$(IncludePath)</IncludePath>
-    <LibraryPath>F:\Dev\github\koikoi-scorer\lib\cpputest\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)lib\cpputest\include;$(SolutionDir)src;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)lib\cpputest\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IntDir>$(SolutionDir)obj\$(ProjectName)\$(Configuration)\</IntDir>
     <OutDir>$(SolutionDir)bin\</OutDir>
-    <IncludePath>F:\Dev\github\koikoi-scorer\lib\cpputest\include;F:\Dev\github\koikoi-scorer\src;$(IncludePath)</IncludePath>
-    <LibraryPath>F:\Dev\github\koikoi-scorer\lib\cpputest\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)lib\cpputest\include;$(SolutionDir)src;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)lib\cpputest\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
